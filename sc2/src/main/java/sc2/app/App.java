@@ -14,8 +14,6 @@ import org.springframework.stereotype.Controller;
 
 public class App {
     public static void main(String[] args) {
-        
-        System.out.println("123");
         SpringApplication.run(App.class);
     }
 }

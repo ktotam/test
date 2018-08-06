@@ -101,17 +101,18 @@
                         </div>
                     </div>
                     <br>
-
+                    <div class="form-inline">
                         <a onclick="calc()" class="btn btn-success btn-lg">CALCULATE</a>
+                    </div>
+                    <br>
+                        <a onclick="set()" class="btn btn-primary">UP</a>
+
 
                 </form>
-            </div>
-            <div class="panel-body">
-                <textarea spellcheck="false" style="resize: none;min-height: 75px" class="form-control" id="area">${text}</textarea>
-                <br>
-                <div class="form-inline">
-                    <a onclick="set()" class="btn btn-primary">SET</a>
-                </div>
+                <p><label>UP ATTACK SPEED</label> <label id="as" >&nbsp;</label></p>
+                <p><label>UP DAMAGE</label>       <label id="dmg">&nbsp;</label></p>
+                <p><label>CURRENT DPS</label>     <label id="dps">&nbsp;</label></p>
+                <p><label>NEW DPS</label>         <label id="newDps">&nbsp;</label></p>
             </div>
         </div>
     </div>
@@ -130,6 +131,7 @@
                         </div>
 
                         <a onclick="income()" class="btn btn-success ">CALCULATE</a>
+                        <hr>
                         <h4><label id="aa">&nbsp;</label></h4>
                     </form>
                 </div>

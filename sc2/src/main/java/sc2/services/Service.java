@@ -7,12 +7,12 @@ import sc2.forms.Form;
 @Component
 public class Service {
     public String calculate(Form form) {
-        Double d = rek(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades());
+        Double d = rek(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), false);
         Double ss = rek2(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), d, 0.0, 0.0);
         b = false;
-        return "set(as/dmg)    " + ss.intValue() / 1000 + " " + ss.intValue() % 100 + " \n" +
-                "dps                 " + dps(form, 0, 0) + "\n" +
-                "new dps          " + d;
+        return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
+                "^dps@" + dps(form, 0, 0) +
+                "$new~" + d + "%";
     }
 
     private Double dps(Form form, double as, double dmg) {
@@ -32,20 +32,20 @@ public class Service {
         return form.getDmgUpgrades() + form.getDmgCost();
     }
 
-    private Double rek(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades) {
+    private Double rek(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, boolean b) {
         if (minerals <= 0) {
             return dps;
         }
 
-        if (minerals - asCost >= 0 && minerals - dmgCost >= 0 && asUpgrades < (2.4 + form.getBonusAs()) / form.getBonusAs()) {
-            return Math.max(rek(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades),
-                    rek(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1));
+        if (minerals - asCost >= 0 && minerals - dmgCost >= 0 && asUpgrades < (2.4 + form.getBonusAs()) / form.getBonusAs() && !b) {
+            return Math.max(rek(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades, false),
+                    rek(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, true));
         } else {
-            if (minerals - asCost >= 0 && asUpgrades < (2.4 + form.getBonusAs()) / form.getBonusAs()) {
-                return rek(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades);
+            if (minerals - asCost >= 0 && asUpgrades < (2.4 + form.getBonusAs()) / form.getBonusAs() && !b) {
+                return rek(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades, false);
             } else {
                 if (minerals - dmgCost >= 0) {
-                    return rek(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1);
+                    return rek(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, true);
                 } else return dps;
             }
         }

@@ -9,11 +9,20 @@ function calc() {
     var dmgCost = document.getElementById("dmgCost");
     var minerals = document.getElementById("minerals");
     var allDmgUpgrades = document.getElementById("allDmgUpgrades");
+    var as = document.getElementById("as");
+    var dmg = document.getElementById("dmg");
+    var dps = document.getElementById("dps");
+    var newDps = document.getElementById("newDps");
 
     req = new XMLHttpRequest();
     req.open('POST', '/calc+'+baseDmg.value+'+'+auraDmg.value+'+'+asUpgrades.value+'+'+dmgUpgrades.value+'+'+bonusAs.value.charAt(0)+asCost.value+dmgCost.value+'+'+minerals.value+'+'+allDmgUpgrades.value, true);
     req.onload = (res) => {
-        area.value = req.response;
+        as.innerText = "+" + req.response.substring(req.response.indexOf("+") + 1, req.response.indexOf("*"));
+        dmg.innerText = "+" + req.response.substring(req.response.indexOf("-") + 1, req.response.indexOf("^"));
+        dps.innerText = req.response.substring(req.response.indexOf("@") + 1, req.response.indexOf("$"));
+        newDps.innerText = req.response.substring(req.response.indexOf("~") + 1, req.response.indexOf("%"));
+        area.value = req.response.substring(req.response.indexOf("+") + 1, req.response.indexOf("*")) + "\n" + req.response + "\n"
+            + req.response.indexOf("+") + " " + req.response.indexOf("*");
     }
     req.send();
 }
@@ -32,11 +41,8 @@ function income() {
 function set() {
     var asUpgrades = document.getElementById("asUpgrades");
     var dmgUpgrades = document.getElementById("dmgUpgrades");
-    var text = document.getElementById("area");
-    var asCost = document.getElementById("asCost");
-    var dmgCost = document.getElementById("dmgCost");
-    var s = text.value[15] + text.value[16];
-    var s2 = text.value[17] + text.value[18] + text.value[19];
-    asUpgrades.value = parseInt(asUpgrades.value) + parseInt(s);
-    dmgUpgrades.value = parseInt(dmgUpgrades.value) + parseInt(s2);
+    var as = document.getElementById("as");
+    var dmg = document.getElementById("dmg");
+    asUpgrades.value = parseInt(asUpgrades.value) + parseInt(as.innerText);
+    dmgUpgrades.value = parseInt(dmgUpgrades.value) + parseInt(dmg.innerText);
 }
