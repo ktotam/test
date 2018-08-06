@@ -1,6 +1,7 @@
 <#ftl encoding='UTF-8'>
 <html>
 <head>
+    <title>EnTropy TD dps calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script type="text/javascript">
@@ -61,7 +62,7 @@
             <div class="panel-heading">
                 <form id="form1">
                     <div class="form-group">
-                        <label for="baseDmg">TOWER</label>
+                        <label for="baseDmg">TOWER test</label>
                         <select class="form-control" id="baseDmg" name="baseDmg">
                             <option>0.36</option>
                             <option>0.37</option>

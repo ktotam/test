@@ -95,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ftl.ftl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ftl.ftl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/ftl.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="613">
-              <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+            <state relative-caret-position="51">
+              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -142,11 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Form.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Form.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sc2/forms/Form.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="20" column="89" lean-forward="true" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
+            <state relative-caret-position="222">
+              <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -178,8 +178,8 @@
         <option value="$PROJECT_DIR$/src/main/java/sc2/services/Service.java" />
         <option value="$PROJECT_DIR$/src/main/java/sc2/forms/Form.java" />
         <option value="$PROJECT_DIR$/src/main/java/sc2/controllers/MyController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/ftl.ftl" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/ftl.ftl" />
       </list>
     </option>
   </component>
@@ -215,9 +215,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-161" />
+    <option name="y" value="247" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -266,7 +266,26 @@
             <path>
               <item name="sc2" type="b2602c69:ProjectViewProjectNode" />
               <item name="sc2" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sc2" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -393,12 +412,12 @@
       <workItem from="1533323491031" duration="2898000" />
       <workItem from="1533403998271" duration="1198000" />
       <workItem from="1533470665859" duration="9433000" />
-      <workItem from="1533519139387" duration="173000" />
+      <workItem from="1533519139387" duration="911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74209000" />
+    <option name="totallyTimeSpent" value="74947000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -430,11 +449,11 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" visible="true" weight="0.24458875" />
+      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.24458875" />
       <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Spring" order="5" />
       <window_info anchor="bottom" id="Terminal" order="6" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13486141" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13486141" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32995737" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -743,13 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/ftl.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sc2/controllers/MyController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
@@ -775,11 +787,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sc2/forms/Form.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="20" column="89" lean-forward="true" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
+        <state relative-caret-position="222">
+          <caret line="23" column="75" lean-forward="true" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/ftl.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
         </state>
       </provider>
     </entry>
