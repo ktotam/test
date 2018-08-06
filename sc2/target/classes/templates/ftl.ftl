@@ -49,7 +49,11 @@
         }
     </script>
 </head>
-
+<style type="text/css">
+    body {
+        background-color: #E9F2F9;
+    }
+</style>
 
 <body>
 
@@ -62,7 +66,8 @@
             <div class="panel-heading">
                 <form id="form1">
                     <div class="form-group">
-                        <label for="baseDmg">TOWER test</label>
+                        <h4><p class="text-center"><label>DPS CALCULATOR</label></p></h4>
+                        <label for="baseDmg">TOWER</label>
                         <select class="form-control" id="baseDmg" name="baseDmg">
                             <option>0.36</option>
                             <option>0.37</option>
@@ -90,7 +95,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="auraDmg">AURA %DMG</label>
+                        <label for="auraDmg">AREA %DMG</label>
                         <input type="text" class="form-control" id="auraDmg" name="auraDmg" autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -161,11 +166,12 @@
                 <div class="panel-heading">
                     <form id="form">
                         <div class="form-group">
-                            <label for="current">CURRENT</label>
+                            <h4><p class="text-center"><label>INCOME CALCULATOR</label></p></h4>
+                            <label for="current">CURRENT WAVE</label>
                             <input type="text" class="form-control" id="current" name="current" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label for="price">PRICE</label>
+                            <label for="price">UPGRADE PRICE</label>
                             <input type="text" class="form-control" id="price" name="price" autocomplete="off">
                         </div>
 
