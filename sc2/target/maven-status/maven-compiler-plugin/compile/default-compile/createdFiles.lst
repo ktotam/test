@@ -1,0 +1,5 @@
+sc2\controllers\MyController.class
+sc2\forms\Form.class
+sc2\services\Service.class
+sc2\app\App.class
+sc2\forms\Form$FormBuilder.class
