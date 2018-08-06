@@ -102,7 +102,7 @@
                     </div>
                     <br>
                     <div class="form-inline">
-                        <a onclick="calc()" class="btn btn-success btn-lg">CALCULATE</a>
+                        <a onclick="calc()" class="btn btn-success btn-lg" id="calculate">CALCULATE</a>
                     </div>
                     <br>
                         <a onclick="set()" class="btn btn-primary">UP</a>
