@@ -9,10 +9,15 @@ public class Service {
     public String calculate(Form form) {
         Double d = rek(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), false);
         Double ss = rek2(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), d, 0.0, 0.0);
+        Integer multiplier = form.getMultiplier();
         b = false;
+        if (multiplier.equals(1))
+            return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
+                    "^dps@" + dps(form, 0, 0) +
+                    "$new~" + d + "%";
         return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
-                "^dps@" + dps(form, 0, 0) +
-                "$new~" + d + "%" + form.getDescription();
+                "^dps@" + dps(form, 0, 0) * multiplier +
+                "$new~" + d * multiplier + "%" + "(if always hits " + multiplier + " targets)";
     }
 
     private Double dps(Form form, double as, double dmg) {

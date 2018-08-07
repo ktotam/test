@@ -19,7 +19,7 @@ public class Form {
     public String dmgCost;
     public String minerals;
     public String allDmgUpgrades;
-    public String description;
+    public String multiplier;
 
     public Double getMinerals() { return Double.parseDouble(minerals); }
 
@@ -77,24 +77,24 @@ public class Form {
         return 1.0;
     }
 
-    public String getDescription() {
+    public Integer getMultiplier() {
         switch(baseDmg) {
-            case "Big Multi shot": return "(if always hits 6 targets)";
-            case "Chain reaction": return "(if always hits 7 targets)";
-            case "Torus": return "(if always hits 5 targets)";
-            case "Damage field": return "(if always hits 6 targets)";
-            case "Bounce": return "(if always hits 3 targets)";
-            case "Big splash": return "(if always hits 4 targets)";
-            case "Infection": return "(if always hits 4 targets)";
-            case "Line splash": return "(if always hits 3 targets)";
-            case "Flame": return "(if always hits 6 targets)";
-            case "Multi shot": return "(if always hits 3 targets)";
-            case "Splash": return "(if always hits 3 targets)";
-            case "Two sided": return "(if always hits 2 targets)";
-            case "Sniper": return "(if always hits 2 targets)";
-            case "Bombardment": return "(if always hits 3 targets)";
+            case "Big Multi shot": return 6;
+            case "Chain reaction": return 7;
+            case "Torus": return 5;
+            case "Damage field": return 6;
+            case "Bounce": return 3;
+            case "Big splash": return 4;
+            case "Infection": return 4;
+            case "Line splash": return 3;
+            case "Flame": return 6;
+            case "Multi shot": return 3;
+            case "Splash": return 3;
+            case "Two sided": return 2;
+            case "Sniper": return 2;
+            case "Bombardment": return 3;
         }
-        return "";
+        return 1;
     }
 
 }

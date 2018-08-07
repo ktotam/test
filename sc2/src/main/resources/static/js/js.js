@@ -14,7 +14,9 @@ function calc() {
         var dmg = document.getElementById("dmg");
         var dps = document.getElementById("dps");
         var newDps = document.getElementById("newDps");
-        var aoe = document.getElementById("aoe");
+        var aoe1 = document.getElementById("aoe1");
+        var aoe2 = document.getElementById("aoe2");
+
 
         req = new XMLHttpRequest();
         req.open('POST', '/calc+'+baseDmg.value+'+'+auraDmg.value+'+'+asUpgrades.value+'+'+dmgUpgrades.value+'+'+bonusAs.value.charAt(0)+asCost.value+dmgCost.value+'+'+minerals.value+'+'+allDmgUpgrades.value, true);
@@ -23,7 +25,8 @@ function calc() {
             dmg.innerText = "+" + req.response.substring(req.response.indexOf("-") + 1, req.response.indexOf("^"));
             dps.innerText = req.response.substring(req.response.indexOf("@") + 1, req.response.indexOf("$"));
             newDps.innerText = req.response.substring(req.response.indexOf("~") + 1, req.response.indexOf("%"));
-            aoe.innerText = req.response.substring(req.response.indexOf("%"), req.response.length);
+            aoe1.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
+            aoe2.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
         }
 
         req.send(); }, 500);

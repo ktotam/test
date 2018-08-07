@@ -65,7 +65,7 @@
                         <input type="text" class="form-control" id="allDmgUpgrades" name="allDmgUpgrades" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <label for="asUpgrades">AS</label>
+                        <label for="asUpgrades">SPEED</label>
                         <input type="text" class="form-control" id="asUpgrades" name="asUpgrades" autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-inline">
                         <div class="form-group" style="max-width: 70px">
-                            <label for="bonusAs">AS BONUS</label>
+                            <label for="bonusAs">SPEED BONUS</label>
                             <select class="form-control" id="bonusAs" name="bonusAs">
                                 <option>4%</option>
                                 <option>5%</option>
@@ -86,7 +86,7 @@
                             </select>
                         </div>
                         <div class="form-group" style="max-width: 70px">
-                            <label for="bonusAs">AS<br>COST</label>
+                            <label for="bonusAs">SPEED COST</label>
                             <select class="form-control" id="asCost" name="asCost">
                                 <option>+1</option>
                                 <option>+2</option>
@@ -113,14 +113,15 @@
                         <a onclick="calc()" class="btn btn-success btn-lg">CALCULATE</a> <img src="gifs/35.gif" style="display: none">
                     </div>
                     <br>
-                        <a onclick="set()" class="btn btn-primary">UP</a>
+
 
 
                 </form>
-                <p><label>UP ATTACK SPEED</label>                                             <label id="as" >&nbsp;</label></p>
-                <p><label>UP DAMAGE</label>                                                   <label id="dmg">&nbsp;</label></p>
-                <p><label>CURRENT DPS</label><span class="text-muted" id="aoe">&nbsp;</span>  <label id="dps">&nbsp;</label></p>
-                <p><label>NEW DPS</label>                                                     <label id="newDps">&nbsp;</label></p>
+                <p><label>UP SPEED</label>                                                     <label id="as" >&nbsp;</label></p>
+                <p><label>UP DAMAGE</label>                                                    <label id="dmg">&nbsp;</label></p>
+                <p><label>CURRENT DPS</label><span class="text-muted" id="aoe1">&nbsp;</span>  <label id="dps">&nbsp;</label></p>
+                <p><label>NEW DPS</label><span class="text-muted" id="aoe2">&nbsp;</span>      <label id="newDps">&nbsp;</label></p>
+                <a onclick="set()" class="btn btn-primary">UP</a>
             </div>
         </div>
     </div>
