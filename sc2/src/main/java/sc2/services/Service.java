@@ -12,7 +12,7 @@ public class Service {
         b = false;
         return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
                 "^dps@" + dps(form, 0, 0) +
-                "$new~" + d + "%";
+                "$new~" + d + "%" + form.getDescription();
     }
 
     private Double dps(Form form, double as, double dmg) {
@@ -53,7 +53,7 @@ public class Service {
 
     private boolean b = false;
     private Double rek2(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, Double max, Double a, Double d) {
-        if (dps.equals(max) && !b) {
+        if (dps.equals(max)) {
             b = true;
             return a * 1000 + d;
         }
@@ -76,7 +76,6 @@ public class Service {
        while (sum <= price) {
            sum = sum + current * 3;
            current++;
-           System.out.println(sum + " " + current);
        }
        return "PAY OFFS IN " + String.valueOf(current - k) + " TURNS";
     }

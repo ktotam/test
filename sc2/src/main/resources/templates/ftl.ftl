@@ -4,6 +4,13 @@
     <title>EnTropy TD dps calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript" src="js/js.js"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9706403203807820",
+            enable_page_level_ads: true
+        });
+    </script>
 </head>
 
 <style type="text/css">
@@ -23,29 +30,30 @@
                         <h4><p class="text-center"><label>DPS CALCULATOR</label></p></h4>
                         <label for="baseDmg">TOWER</label>
                         <select class="form-control" id="baseDmg" name="baseDmg">
-                            <option>0.36</option>
-                            <option>0.37</option>
-                            <option>0.4</option>
-                            <option>0.66</option>
-                            <option>0.7</option>
-                            <option>0.78</option>
-                            <option>0.83</option>
-                            <option>0.85</option>
-                            <option>0.86</option>
-                            <option>0.9</option>
-                            <option>1.15</option>
-                            <option>1.22</option>
-                            <option>1.47</option>
-                            <option>1.58</option>
-                            <option>1.62</option>
-                            <option>1.9</option>
-                            <option>2.02</option>
-                            <option>2.13</option>
-                            <option>2.18</option>
-                            <option>2.45</option>
-                            <option>2.7</option>
-                            <option>3.3</option>
-                            <option>4.2</option>
+                            <option>Angle</option>
+                            <option>Anti Air</option>
+                            <option>Big Multi shot</option>
+                            <option>Big splash</option>
+                            <option>Bombardment</option>
+                            <option>Bounce</option>
+                            <option>Chain reaction</option>
+                            <option>Charge</option>
+                            <option>Damage field</option>
+                            <option>Discharge</option>
+                            <option>Flame</option>
+                            <option>High damage</option>
+                            <option>Infection</option>
+                            <option>Line splash</option>
+                            <option>Long Minimum range</option>
+                            <option>Melee</option>
+                            <option>Minimum range</option>
+                            <option>Multi shot</option>
+                            <option>Rage</option>
+                            <option>Sniper</option>
+                            <option>Splash</option>
+                            <option>Torus</option>
+                            <option>Trigger</option>
+                            <option>Two sided</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -102,17 +110,17 @@
                     </div>
                     <br>
                     <div class="form-inline">
-                        <a onclick="calc()" class="btn btn-success btn-lg" id="calculate">CALCULATE</a>
+                        <a onclick="calc()" class="btn btn-success btn-lg">CALCULATE</a> <img src="gifs/35.gif" style="display: none">
                     </div>
                     <br>
                         <a onclick="set()" class="btn btn-primary">UP</a>
 
 
                 </form>
-                <p><label>UP ATTACK SPEED</label> <label id="as" >&nbsp;</label></p>
-                <p><label>UP DAMAGE</label>       <label id="dmg">&nbsp;</label></p>
-                <p><label>CURRENT DPS</label>     <label id="dps">&nbsp;</label></p>
-                <p><label>NEW DPS</label>         <label id="newDps">&nbsp;</label></p>
+                <p><label>UP ATTACK SPEED</label>                                             <label id="as" >&nbsp;</label></p>
+                <p><label>UP DAMAGE</label>                                                   <label id="dmg">&nbsp;</label></p>
+                <p><label>CURRENT DPS</label><span class="text-muted" id="aoe">&nbsp;</span>  <label id="dps">&nbsp;</label></p>
+                <p><label>NEW DPS</label>                                                     <label id="newDps">&nbsp;</label></p>
             </div>
         </div>
     </div>

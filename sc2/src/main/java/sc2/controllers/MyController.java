@@ -28,7 +28,7 @@ public class MyController {
     public String update(@PathVariable("baseDmg") String baseDmg, @PathVariable("auraDmg") String auraDmg, @PathVariable("asUpgrades") String asUpgrades,
                          @PathVariable("dmgUpgrades") String dmgUpgrades, @PathVariable("bonusAs") String bonusAs, @PathVariable("asCost") String asCost,
                          @PathVariable("dmgCost") String dmgCost, @PathVariable("minerals") String minerals, @PathVariable("allDmgUpgrades") String allDmgUpgrades) {
-        Form form = new Form(baseDmg, auraDmg, dmgUpgrades, asUpgrades, bonusAs, asCost, dmgCost, minerals, allDmgUpgrades);
+        Form form = new Form(baseDmg, auraDmg, dmgUpgrades, asUpgrades, bonusAs, asCost, dmgCost, minerals, allDmgUpgrades, "");
         return service.calculate(form);
     }
 

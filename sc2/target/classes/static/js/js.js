@@ -1,5 +1,6 @@
 function calc() {
-    var asd = setTimeout(function(){ var area = document.getElementById("area");
+    var asd = setTimeout(function(){
+        var area = document.getElementById("area");
         var baseDmg = document.getElementById("baseDmg");
         var auraDmg = document.getElementById("auraDmg");
         var asUpgrades = document.getElementById("asUpgrades");
@@ -13,7 +14,7 @@ function calc() {
         var dmg = document.getElementById("dmg");
         var dps = document.getElementById("dps");
         var newDps = document.getElementById("newDps");
-        var calculate = document.getElementById("calculate");
+        var aoe = document.getElementById("aoe");
 
         req = new XMLHttpRequest();
         req.open('POST', '/calc+'+baseDmg.value+'+'+auraDmg.value+'+'+asUpgrades.value+'+'+dmgUpgrades.value+'+'+bonusAs.value.charAt(0)+asCost.value+dmgCost.value+'+'+minerals.value+'+'+allDmgUpgrades.value, true);
@@ -22,8 +23,7 @@ function calc() {
             dmg.innerText = "+" + req.response.substring(req.response.indexOf("-") + 1, req.response.indexOf("^"));
             dps.innerText = req.response.substring(req.response.indexOf("@") + 1, req.response.indexOf("$"));
             newDps.innerText = req.response.substring(req.response.indexOf("~") + 1, req.response.indexOf("%"));
-            area.value = req.response.substring(req.response.indexOf("+") + 1, req.response.indexOf("*")) + "\n" + req.response + "\n"
-                + req.response.indexOf("+") + " " + req.response.indexOf("*");
+            aoe.innerText = req.response.substring(req.response.indexOf("%"), req.response.length);
         }
 
         req.send(); }, 500);
