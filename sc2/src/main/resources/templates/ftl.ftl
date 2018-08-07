@@ -110,7 +110,7 @@
                     </div>
                     <br>
                     <div class="form-inline">
-                        <a onclick="calc()" class="btn btn-success btn-lg">CALCULATE</a> <img src="gifs/35.gif" style="display: none">
+                        <a onclick="calc()" class="btn btn-success btn-lg" id="clc">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif">
                     </div>
                     <br>
 
@@ -139,7 +139,7 @@
                             <input type="text" class="form-control" id="price" name="price" autocomplete="off">
                         </div>
 
-                        <a onclick="income()" class="btn btn-success ">CALCULATE</a>
+                        <a onclick="income()" class="btn btn-success " >CALCULATE</a>
                         <hr>
                         <h4><label id="aa">&nbsp;</label></h4>
                     </form>

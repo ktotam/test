@@ -77,24 +77,24 @@ public class Form {
         return 1.0;
     }
 
-    public Integer getMultiplier() {
+    public Double getMultiplier() {
         switch(baseDmg) {
-            case "Big Multi shot": return 6;
-            case "Chain reaction": return 7;
-            case "Torus": return 5;
-            case "Damage field": return 6;
-            case "Bounce": return 3;
-            case "Big splash": return 4;
-            case "Infection": return 4;
-            case "Line splash": return 3;
-            case "Flame": return 6;
-            case "Multi shot": return 3;
-            case "Splash": return 3;
-            case "Two sided": return 2;
-            case "Sniper": return 2;
-            case "Bombardment": return 3;
+            case "Big Multi shot": return 6.0;
+            case "Chain reaction": return 7.0;
+            case "Torus": return 6.5;
+            case "Damage field": return 6.0;
+            case "Bounce": return 3.0;
+            case "Big splash": return 4.0;
+            case "Infection": return 4.0;
+            case "Line splash": return 3.0;
+            case "Flame": return 6.0;
+            case "Multi shot": return 3.0;
+            case "Splash": return 3.0;
+            case "Two sided": return 2.0;
+            case "Sniper": return 2.0;
+            case "Bombardment": return 3.0;
         }
-        return 1;
+        return 1.0;
     }
 
 }
