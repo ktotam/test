@@ -27,8 +27,8 @@ function calc() {
         dps.innerText = req.response.substring(req.response.indexOf("@") + 1, req.response.indexOf("$"));
         newDps.innerText = req.response.substring(req.response.indexOf("~") + 1, req.response.indexOf("%"));
         aoe1.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
- //       aoe2.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
-        aoe2.innerText = req.response;
+        aoe2.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
+ //       aoe2.innerText = req.response;
 
         document.getElementById("gif").style.display = 'none';
     }
