@@ -3,25 +3,36 @@ package sc2.services;
 import org.springframework.stereotype.Component;
 import sc2.forms.Form;
 
+import java.util.concurrent.Callable;
+
 
 @Component
 public class Service {
     public String calculate(Form form) {
-        Double d = rek(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), false);
-        Double ss = rek2(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), d, 0.0, 0.0);
-        Double multiplier = form.getMultiplier();
-        b = false;
-        if (multiplier.equals(1.0))
-            return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
-                    "^dps@" + dps(form, 0, 0) +
-                    "$new~" + d + "%";
-        if (multiplier.equals(6.5))
+        Callable task = () -> {
+            Double d = rek(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), false);
+            Double ss = rek2(form, form.getMinerals(), dps(form, 0, 0), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), d, 0.0, 0.0);
+            Double multiplier = form.getMultiplier();
+            found = false;
+            if (multiplier.equals(1.0))
+                return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
+                        "^dps@" + dps(form, 0, 0) +
+                        "$new~" + d + "%";
+            if (multiplier.equals(6.5))
+                return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
+                        "^dps@" + dps(form, 0, 0) * multiplier +
+                        "$new~" + d * multiplier + "%" + "(if always hits 7 targets)";
             return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
                     "^dps@" + dps(form, 0, 0) * multiplier +
-                    "$new~" + d * multiplier + "%" + "(if always hits 7 targets)";
-        return "as+" + ss.intValue() / 1000 + "*dmg-" + ss.intValue() % 100 +
-                "^dps@" + dps(form, 0, 0) * multiplier +
-                "$new~" + d * multiplier + "%" + "(if always hits " + Math.round(multiplier) + " targets)";
+                    "$new~" + d * multiplier + "%" + "(if always hits " + Math.round(multiplier) + " targets)";
+        };
+        try {
+            return task.call().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "error";
+
     }
 
     private Double dps(Form form, double as, double dmg) {
@@ -60,17 +71,17 @@ public class Service {
         }
     }
 
-    private boolean b = false;
+    private boolean found = false;
     private Double rek2(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, Double max, Double a, Double d) {
         if (dps.equals(max)) {
-            b = true;
+            found = true;
             return a * 1000 + d;
         }
         if (minerals <= 0.0) {
            return 0.0;
         }
         
-        if(!b) {
+        if(!found) {
             return rek2(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades, max, ++a, d) +
                     rek2(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, max, --a, ++d);
         }

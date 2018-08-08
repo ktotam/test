@@ -1,7 +1,6 @@
 function calc() {
     document.getElementById("clc").setAttribute("onclick", "");
     document.getElementById("gif").style.display = '';
-   // div.style.display == '')
     var area = document.getElementById("area");
     var baseDmg = document.getElementById("baseDmg");
     var auraDmg = document.getElementById("auraDmg");

@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sc2.forms.Form;
 import sc2.services.Service;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @Controller
 public class MyController {
 
@@ -29,6 +32,7 @@ public class MyController {
                          @PathVariable("dmgUpgrades") String dmgUpgrades, @PathVariable("bonusAs") String bonusAs, @PathVariable("asCost") String asCost,
                          @PathVariable("dmgCost") String dmgCost, @PathVariable("minerals") String minerals, @PathVariable("allDmgUpgrades") String allDmgUpgrades) {
         Form form = new Form(baseDmg, auraDmg, dmgUpgrades, asUpgrades, bonusAs, asCost, dmgCost, minerals, allDmgUpgrades, "");
+        ExecutorService executor = Executors.newFixedThreadPool(1);
         return service.calculate(form);
     }
 
