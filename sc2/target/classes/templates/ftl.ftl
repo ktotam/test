@@ -58,23 +58,23 @@
                     </div>
                     <div class="form-group">
                         <label for="auraDmg">AREA %DMG</label>
-                        <input type="text" class="form-control" id="auraDmg" name="auraDmg" autocomplete="off">
+                        <input type="text" class="form-control" id="auraDmg" name="auraDmg" autocomplete="off" maxlength="3">
                     </div>
                     <div class="form-group">
                         <label for="allDmgUpgrades">ALL TOWERS DMG UPGRADES</label>
-                        <input type="text" class="form-control" id="allDmgUpgrades" name="allDmgUpgrades" autocomplete="off">
+                        <input type="text" class="form-control" id="allDmgUpgrades" name="allDmgUpgrades" autocomplete="off" maxlength="3">
                     </div>
                     <div class="form-group">
                         <label for="asUpgrades">SPEED</label>
-                        <input type="text" class="form-control" id="asUpgrades" name="asUpgrades" autocomplete="off">
+                        <input type="text" class="form-control" id="asUpgrades" name="asUpgrades" autocomplete="off" maxlength="2">
                     </div>
                     <div class="form-group">
                         <label for="dmgUpgrades">DMG</label>
-                        <input type="text" class="form-control" id="dmgUpgrades" name="dmgUpgrades" autocomplete="off">
+                        <input type="text" class="form-control" id="dmgUpgrades" name="dmgUpgrades" autocomplete="off" maxlength="4">
                     </div>
                     <div class="form-group">
                         <label for="dmgUpgrades">MINERALS</label>
-                        <input type="text" class="form-control" id="minerals" name="minerals" autocomplete="off">
+                        <input type="text" class="form-control" id="minerals" name="minerals" autocomplete="off" maxlength="5">
                     </div>
                     <div class="form-inline">
                         <div class="form-group" style="max-width: 70px">

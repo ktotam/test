@@ -22,14 +22,16 @@ function calc() {
     req = new XMLHttpRequest();
     req.open('POST', '/calc+'+baseDmg.value+'+'+auraDmg.value+'+'+asUpgrades.value+'+'+dmgUpgrades.value+'+'+bonusAs.value.charAt(0)+asCost.value+dmgCost.value+'+'+minerals.value+'+'+allDmgUpgrades.value, true);
     req.onload = (res) => {
+        if (req.response.charAt(0) !== "<") {
         as.innerText = "+" + req.response.substring(req.response.indexOf("+") + 1, req.response.indexOf("*"));
         dmg.innerText = "+" + req.response.substring(req.response.indexOf("-") + 1, req.response.indexOf("^"));
         dps.innerText = req.response.substring(req.response.indexOf("@") + 1, req.response.indexOf("$"));
         newDps.innerText = req.response.substring(req.response.indexOf("~") + 1, req.response.indexOf("%"));
         aoe1.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
- //       aoe2.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
-        aoe2.innerText = req.response;
-
+        aoe2.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
+ //       aoe2.innerText = req.response;
+        }
+        else alert("error");
         document.getElementById("gif").style.display = 'none';
     }
 
