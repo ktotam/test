@@ -78,7 +78,7 @@ function income() {
     var current = document.getElementById("current");
     var price = document.getElementById("price");
     var aa = document.getElementById("aa");
-    if (!isNaN(current.value) && ! isNaN(price.value)) {
+    if (!isNaN(current.value) && ! isNaN(price.value) && current.value !== "" && price.value !== "") {
         req = new XMLHttpRequest();
         req.open('POST', '/income+'+current.value+'+'+price.value, true);
         req.onload = (res) => {
