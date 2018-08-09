@@ -98,17 +98,22 @@ function set(q) {
     dmgUpgrades.value = parseInt(dmgUpgrades.value) + parseInt(dmg.innerText);
 }
 
-var k = 1;
 function addCalculator() {
-    if (k < 3) {
+    var k = 2;
+    var b = false;
+    while (!b) {
+        if (document.getElementById("calculator" + k).style.display === 'none') {
+            document.getElementById("calculator" + k).style.display = '';
+            b = true;
+        }
         k++;
-        document.getElementById("calculator" + k).style.display = '';
+        if (k === 4)
+            b = true;
     }
 }
 
 function removeCalculator(q) {
     document.getElementById("calculator" + q).style.display = 'none';
-    k--;
 }
 
 function incomeCalculator() {
