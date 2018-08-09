@@ -25,28 +25,13 @@ public class MyController {
         return "ftl";
     }
 
-    @PostMapping("/calc+{baseDmg}+{auraDmg}+{asUpgrades}+{dmgUpgrades}+{bonusAs}+{asCost}+{dmgCost}+{minerals}+{allDmgUpgrades}")
+    @PostMapping("/calc+{baseDmg}+{auraDmg}+{asUpgrades}+{dmgUpgrades}+{bonusAs}+{asCost}+{dmgCost}+{minerals}+{allDmgUpgrades}+{armor}")
     @ResponseBody
     public String update(@PathVariable("baseDmg") String baseDmg, @PathVariable("auraDmg") String auraDmg, @PathVariable("asUpgrades") String asUpgrades,
                          @PathVariable("dmgUpgrades") String dmgUpgrades, @PathVariable("bonusAs") String bonusAs, @PathVariable("asCost") String asCost,
-                         @PathVariable("dmgCost") String dmgCost, @PathVariable("minerals") String minerals, @PathVariable("allDmgUpgrades") String allDmgUpgrades) {
-        Form form = new Form(baseDmg, auraDmg, dmgUpgrades, asUpgrades, bonusAs, asCost, dmgCost, minerals, allDmgUpgrades, "");
-        Callable task = () -> {
-            TimeUnit.MILLISECONDS.sleep(3000);
-            return service.calculate(form);
-        };
-        ExecutorService executor = Executors.newFixedThreadPool(100);
-        String s = "error";
-        try {
-            s = executor.submit(task).get().toString();
-        } catch (Exception e) {
-            return "error";
-        }
-        return s;
-
-
-
-
+                         @PathVariable("dmgCost") String dmgCost, @PathVariable("minerals") String minerals, @PathVariable("allDmgUpgrades") String allDmgUpgrades, @PathVariable("armor") String armor) {
+        Form form = new Form(baseDmg, auraDmg, dmgUpgrades, asUpgrades, bonusAs, asCost, dmgCost, minerals, allDmgUpgrades, armor);
+        return service.calculate(form);
     }
 
     @PostMapping("/income+{current}+{price}")

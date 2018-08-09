@@ -6,42 +6,52 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
 public class Form {
-    public String baseDmg;
-    public String auraDmg;
-    public String dmgUpgrades;
-    public String asUpgrades;
-    public String bonusAs;
-    public String asCost;
-    public String dmgCost;
-    public String minerals;
-    public String allDmgUpgrades;
-    public String multiplier;
+    private String baseDmg;
+    private String auraDmg;
+    private String dmgUpgrades;
+    private String asUpgrades;
+    private String bonusAs;
+    private String asCost;
+    private String dmgCost;
+    private String minerals;
+    private String allDmgUpgrades;
+    private String armor;
+
+    public Form(String baseDmg, String auraDmg, String dmgUpgrades, String asUpgrades, String bonusAs, String asCost, String dmgCost, String minerals, String allDmgUpgrades, String armor) {
+        this.baseDmg = baseDmg;
+        this.auraDmg = checkNull(auraDmg, false);
+        this.dmgUpgrades = checkNull(dmgUpgrades, false);
+        this.asUpgrades = checkNull(asUpgrades, false);
+        this.bonusAs = bonusAs;
+        this.asCost = asCost;
+        this.dmgCost = dmgCost;
+        this.minerals = checkNull(minerals, false);
+        this.allDmgUpgrades = checkNull(allDmgUpgrades, false);
+        this.armor = checkNull(armor, true);
+    }
+
+    private String checkNull(String s, boolean armor) {
+        if (s.equals("") || Double.parseDouble(s) < 0 && !armor) {
+            return "0";
+        }
+        return s;
+    }
+
+    public Double getArmor() { return Double.parseDouble(armor); }
 
     public Double getMinerals() { return Double.parseDouble(minerals); }
 
-    public Double getAsCost() {
-        return Double.parseDouble(asCost);
-    }
+    public Double getAsCost() { return Double.parseDouble(asCost); }
 
-    public Double getDmgCost() {
-        return Double.parseDouble(dmgCost);
-    }
+    public Double getDmgCost() { return Double.parseDouble(dmgCost); }
 
-    public Double getAuraDmg() {
-        return Double.parseDouble(auraDmg)/100;
-    }
+    public Double getAuraDmg() { return Double.parseDouble(auraDmg)/100; }
 
-    public Double getDmgUpgrades() {
-        return Double.parseDouble(dmgUpgrades);
-    }
+    public Double getDmgUpgrades() { return Double.parseDouble(dmgUpgrades); }
 
-    public Double getAsUpgrades() {
-        return Double.parseDouble(asUpgrades);
-    }
+    public Double getAsUpgrades() { return Double.parseDouble(asUpgrades); }
 
     public Double getBonusAs() { return Double.parseDouble(bonusAs)/100; }
 

@@ -1,42 +1,76 @@
-function calc() {
-    document.getElementById("clc").setAttribute("onclick", "");
-    document.getElementById("gif").style.display = '';
-    var area = document.getElementById("area");
-    var baseDmg = document.getElementById("baseDmg");
-    var auraDmg = document.getElementById("auraDmg");
-    var asUpgrades = document.getElementById("asUpgrades");
-    var dmgUpgrades = document.getElementById("dmgUpgrades");
-    var bonusAs = document.getElementById("bonusAs");
-    var asCost = document.getElementById("asCost");
-    var dmgCost = document.getElementById("dmgCost");
-    var minerals = document.getElementById("minerals");
-    var allDmgUpgrades = document.getElementById("allDmgUpgrades");
-    var as = document.getElementById("as");
-    var dmg = document.getElementById("dmg");
-    var dps = document.getElementById("dps");
-    var newDps = document.getElementById("newDps");
-    var aoe1 = document.getElementById("aoe1");
-    var aoe2 = document.getElementById("aoe2");
+function calc(q) {
+    document.getElementById("error" + q).style.display = 'none';
+    document.getElementById("clc1").setAttribute("onclick", "");
+    document.getElementById("clc2").setAttribute("onclick", "");
+    document.getElementById("clc3").setAttribute("onclick", "");
+    document.getElementById("gif" + q).style.display = '';
+    var baseDmg = document.getElementById("baseDmg" + q);
+    var auraDmg = document.getElementById("auraDmg" + q);
+    if (auraDmg.value < 0 || auraDmg.value === "")
+        auraDmg.value = "0";
+    var asUpgrades = document.getElementById("asUpgrades" + q);
+    if (asUpgrades.value < 0 || asUpgrades.value === "")
+        asUpgrades.value = "0";
+    var dmgUpgrades = document.getElementById("dmgUpgrades" + q);
+    if (dmgUpgrades.value < 0 || dmgUpgrades.value === "")
+        dmgUpgrades.value = "0";
+    var bonusAs = document.getElementById("bonusAs" + q);
+    var asCost = document.getElementById("asCost" + q);
+    var dmgCost = document.getElementById("dmgCost" + q);
+    var minerals = document.getElementById("minerals" + q);
+    if (minerals.value < 0 || minerals.value === "")
+        minerals.value = "0";
+    var allDmgUpgrades = document.getElementById("allDmgUpgrades" + q);
+    if (allDmgUpgrades.value < 0 || allDmgUpgrades.value === "")
+        allDmgUpgrades.value = "0";
+    var armor = document.getElementById("armor" + q);
+    if (armor.value === "")
+        armor.value = "0";
+    
+    var as = document.getElementById("as" + q);
+    var dmg = document.getElementById("dmg" + q);
+    var dps = document.getElementById("dps" + q);
+    var newDps = document.getElementById("newDps" + q);
+
+    var aoe = document.getElementById("aoe" + q);
+    var newAoe = document.getElementById("newAoe" + q);
 
 
     req = new XMLHttpRequest();
-    req.open('POST', '/calc+'+baseDmg.value+'+'+auraDmg.value+'+'+asUpgrades.value+'+'+dmgUpgrades.value+'+'+bonusAs.value.charAt(0)+asCost.value+dmgCost.value+'+'+minerals.value+'+'+allDmgUpgrades.value, true);
+    req.open('POST', '/calc+'+baseDmg.value+'+'+auraDmg.value+'+'+asUpgrades.value+'+'+dmgUpgrades.value+'+'+bonusAs.value.charAt(0)+asCost.value+dmgCost.value+'+'+minerals.value+'+'+allDmgUpgrades.value+'+'+armor.value, true);
     req.onload = (res) => {
-        if (req.response.charAt(0) !== "<") {
+        if (req.response.charAt(0) === "a") {
         as.innerText = "+" + req.response.substring(req.response.indexOf("+") + 1, req.response.indexOf("*"));
         dmg.innerText = "+" + req.response.substring(req.response.indexOf("-") + 1, req.response.indexOf("^"));
         dps.innerText = req.response.substring(req.response.indexOf("@") + 1, req.response.indexOf("$"));
         newDps.innerText = req.response.substring(req.response.indexOf("~") + 1, req.response.indexOf("%"));
-        aoe1.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
-        aoe2.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
- //       aoe2.innerText = req.response;
+        aoe.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
+        newAoe.innerText = req.response.substring(req.response.indexOf("%") + 1, req.response.length);
+        document.getElementById("set" + q).setAttribute("onclick", "set(" + q + ")");
+
+            //       aoe2.innerText = req.response;
         }
-        else alert("error");
-        document.getElementById("gif").style.display = 'none';
+        else document.getElementById("error" + q).style.display = '';
+        document.getElementById("gif" + q).style.display = 'none';
+        var sum = 0;
+        for (var i = parseInt(asUpgrades.value) + parseInt(asCost.value); i < parseInt(asUpgrades.value) + parseInt(asCost.value) + parseInt(as.innerText); i++) {
+            sum = sum + i;
+        }
+        for (var j = parseInt(dmgUpgrades.value) + parseInt(dmgCost.value); j < parseInt(dmgUpgrades.value) + parseInt(dmgCost.value) + parseInt(dmg.innerText); j++) {
+            sum = sum + j;
+        }
+        var s = ((parseFloat(newDps.innerText) - parseFloat(dps.innerText)) / sum).toString();
+        if (s === "NaN" || s === "Infinity"){
+            document.getElementById("dpm" + q).innerText = "0";
+        }
+        else document.getElementById("dpm" + q).innerText = s;
+        document.getElementById("clc1").setAttribute("onclick", "calc(1)");
+        document.getElementById("clc2").setAttribute("onclick", "calc(2)");
+        document.getElementById("clc3").setAttribute("onclick", "calc(3)");
     }
 
     req.send();
-    var asd = setTimeout(function(){ document.getElementById("clc").setAttribute("onclick", "calc()");}, 1000);
+
 
 
 }
@@ -52,11 +86,32 @@ function income() {
     }
     req.send();
 }
-function set() {
-    var asUpgrades = document.getElementById("asUpgrades");
-    var dmgUpgrades = document.getElementById("dmgUpgrades");
-    var as = document.getElementById("as");
-    var dmg = document.getElementById("dmg");
+function set(q) {
+    var asUpgrades = document.getElementById("asUpgrades" + q);
+    var dmgUpgrades = document.getElementById("dmgUpgrades" + q);
+    var as = document.getElementById("as" + q);
+    var dmg = document.getElementById("dmg" + q);
     asUpgrades.value = parseInt(asUpgrades.value) + parseInt(as.innerText);
     dmgUpgrades.value = parseInt(dmgUpgrades.value) + parseInt(dmg.innerText);
+}
+
+var k = 1;
+function addCalculator() {
+    if (k < 3) {
+        k++;
+        document.getElementById("calculator" + k).style.display = '';
+    }
+}
+
+function removeCalculator(q) {
+    document.getElementById("calculator" + q).style.display = 'none';
+    k--;
+}
+
+function incomeCalculator() {
+    if (document.getElementById("incomeCalculator").style.display === 'none') {
+        document.getElementById("incomeCalculator").style.display = "";
+    }
+    else
+        document.getElementById("incomeCalculator").style.display = "none";
 }

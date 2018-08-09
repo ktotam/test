@@ -19,118 +19,388 @@
     }
 </style>
 
-<body><br><br>
+<body>
+           <br>
 <div class="container" id="main">
     <div class="row">
-    <div class="col-md-6 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <form id="form1">
-                    <div class="form-group">
-                        <h4><p class="text-center"><label>DPS CALCULATOR</label></p></h4>
-                        <label for="baseDmg">TOWER</label>
-                        <select class="form-control" id="baseDmg" name="baseDmg">
-                            <option>Angle</option>
-                            <option>Anti Air</option>
-                            <option>Big Multi shot</option>
-                            <option>Big splash</option>
-                            <option>Bombardment</option>
-                            <option>Bounce</option>
-                            <option>Chain reaction</option>
-                            <option>Charge</option>
-                            <option>Damage field</option>
-                            <option>Discharge</option>
-                            <option>Flame</option>
-                            <option>High damage</option>
-                            <option>Infection</option>
-                            <option>Line splash</option>
-                            <option>Long Minimum range</option>
-                            <option>Melee</option>
-                            <option>Minimum range</option>
-                            <option>Multi shot</option>
-                            <option>Rage</option>
-                            <option>Sniper</option>
-                            <option>Splash</option>
-                            <option>Torus</option>
-                            <option>Trigger</option>
-                            <option>Two sided</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="auraDmg">AREA %DMG</label>
-                        <input type="text" class="form-control" id="auraDmg" name="auraDmg" autocomplete="off" maxlength="3">
-                    </div>
-                    <div class="form-group">
-                        <label for="allDmgUpgrades">ALL TOWERS DMG UPGRADES</label>
-                        <input type="text" class="form-control" id="allDmgUpgrades" name="allDmgUpgrades" autocomplete="off" maxlength="3">
-                    </div>
-                    <div class="form-group">
-                        <label for="asUpgrades">SPEED</label>
-                        <input type="text" class="form-control" id="asUpgrades" name="asUpgrades" autocomplete="off" maxlength="2">
-                    </div>
-                    <div class="form-group">
-                        <label for="dmgUpgrades">DMG</label>
-                        <input type="text" class="form-control" id="dmgUpgrades" name="dmgUpgrades" autocomplete="off" maxlength="4">
-                    </div>
-                    <div class="form-group">
-                        <label for="dmgUpgrades">MINERALS</label>
-                        <input type="text" class="form-control" id="minerals" name="minerals" autocomplete="off" maxlength="5">
-                    </div>
-                    <div class="form-inline">
-                        <div class="form-group" style="max-width: 70px">
-                            <label for="bonusAs">SPEED BONUS</label>
-                            <select class="form-control" id="bonusAs" name="bonusAs">
-                                <option>4%</option>
-                                <option>5%</option>
-                                <option>6%</option>
+
+        <div class="col-md-4" id="calculator1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form id="form1">
+                        <div class="form-group">
+                            <h4><a onclick="addCalculator()" class="btn btn-small btn-info pull-right" id="add">ADD</a><a onclick="incomeCalculator()" class="btn btn-info pull-left">INCOME</a><label class="text-center">&nbsp;DPS CALCULATOR</label></h4>
+                            <label for="baseDmg1">TOWER</label>
+                            <select class="form-control" id="baseDmg1" name="baseDmg1">
+                                <option>Angle</option>
+                                <option>Anti Air</option>
+                                <option>Big Multi shot</option>
+                                <option>Big splash</option>
+                                <option>Bombardment</option>
+                                <option>Bounce</option>
+                                <option>Chain reaction</option>
+                                <option>Charge</option>
+                                <option>Damage field</option>
+                                <option>Discharge</option>
+                                <option>Flame</option>
+                                <option>High damage</option>
+                                <option>Infection</option>
+                                <option>Line splash</option>
+                                <option>Long Minimum range</option>
+                                <option>Melee</option>
+                                <option>Minimum range</option>
+                                <option>Multi shot</option>
+                                <option>Rage</option>
+                                <option>Sniper</option>
+                                <option>Splash</option>
+                                <option>Torus</option>
+                                <option>Trigger</option>
+                                <option>Two sided</option>
                             </select>
                         </div>
-                        <div class="form-group" style="max-width: 70px">
-                            <label for="bonusAs">SPEED COST</label>
-                            <select class="form-control" id="asCost" name="asCost">
-                                <option>+1</option>
-                                <option>+2</option>
-                                <option>+3</option>
-                                <option>+4</option>
-                                <option>+5</option>
-                                <option>+6</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="auraDmg1">AREA %DMG</label>
+                            <input type="text" class="form-control" id="auraDmg1" name="auraDmg1" autocomplete="off" maxlength="3">
                         </div>
-                        <div class="form-group" style="max-width: 70px">
-                            <label for="bonusAs">DMG COST</label>
-                            <select class="form-control" id="dmgCost" name="dmgCost">
-                                <option>+1</option>
-                                <option>+2</option>
-                                <option>+3</option>
-                                <option>+4</option>
-                                <option>+5</option>
-                                <option>+6</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="allDmgUpgrades1">ALL TOWERS DMG UPGRADES</label>
+                            <input type="text" class="form-control" id="allDmgUpgrades1" name="allDmgUpgrades1" autocomplete="off" maxlength="3">
                         </div>
-                    </div>
-                    <br>
-                    <div class="form-inline">
-                        <a onclick="calc()" class="btn btn-success btn-lg" id="clc">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif">
-                    </div>
-                    <br>
+                        <div class="form-group">
+                            <label for="armor1">WAVE ARMOR</label>
+                            <input type="text" class="form-control" id="armor1" name="armor1" autocomplete="off" maxlength="5">
+                        </div>
+
+                        <div class="form-group" >
+                            <label for="minerals1">MINERALS</label>
+                            <input type="text" class="form-control" id="minerals1" name="minerals1" autocomplete="off" maxlength="5">
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group" >
+                                <label for="asUpgrades1">SPEED</label>
+                                <br>
+                                <input type="text" class="form-control" id="asUpgrades1" name="asUpgrades1" autocomplete="off" maxlength="2" style="max-width: 130px">
+                            </div>
+                            &nbsp;
+                            <div class="form-group">
+
+                                <label for="dmgUpgrades1">DAMAGE</label>
+                                <br>
+                                <input type="text" class="form-control" id="dmgUpgrades1" name="dmgUpgrades1" autocomplete="off" maxlength="4" style="max-width: 130px">
+                                &nbsp;
+
+                                <div class="form-group pull-right">
+                                    <a onclick="" class="btn btn-primary" id="set1">UP</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-inline">
+                            <div class="form-group" style="max-width: 70px">
+                                <label for="bonusAs1">SPEED BONUS</label>
+                                <select class="form-control" id="bonusAs1" name="bonusAs1">
+                                    <option>4%</option>
+                                    <option>5%</option>
+                                    <option>6%</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="max-width: 70px">
+                                <label for="asCost1">SPEED COST</label>
+                                <select class="form-control" id="asCost1" name="asCost1">
+                                    <option>+1</option>
+                                    <option>+2</option>
+                                    <option>+3</option>
+                                    <option>+4</option>
+                                    <option>+5</option>
+                                    <option>+6</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="max-width: 70px">
+                                <label for="dmgCost1">DMG COST</label>
+                                <select class="form-control" id="dmgCost1" name="dmgCost1">
+                                    <option>+1</option>
+                                    <option>+2</option>
+                                    <option>+3</option>
+                                    <option>+4</option>
+                                    <option>+5</option>
+                                    <option>+6</option>
+                                </select>
+                            </div>
+                            <a onclick="calc(1)" class="btn btn-success" id="clc1">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif1"> <label style="color: red; display: none" id="error1">ERROR</label>
+                        </div>
+                        <br>
+                        <div class="form-inline">
+                        </div>
 
 
 
-                </form>
-                <p><label>UP SPEED</label>                                                     <label id="as" >&nbsp;</label></p>
-                <p><label>UP DAMAGE</label>                                                    <label id="dmg">&nbsp;</label></p>
-                <p><label>CURRENT DPS</label><span class="text-muted" id="aoe1">&nbsp;</span>  <label id="dps">&nbsp;</label></p>
-                <p><label>NEW DPS</label><span class="text-muted" id="aoe2">&nbsp;</span>      <label id="newDps">&nbsp;</label></p>
-                <a onclick="set()" class="btn btn-primary">UP</a>
+                    </form>
+                    <table class="table">
+                        <tr><td colspan="1"><h5>UP SPEED</h5></td><td>&nbsp;</td>                                               <td><b id="as1">&nbsp;</b></td></tr>
+                        <tr><td colspan="1"><h5>UP DAMAGE</h5></td><td>&nbsp;</td>                                               <td><b id="dmg1">&nbsp;</b></td></tr>
+                        <tr><td colspan="2" ><h5>CURRENT DPS<text class="text-muted" id="aoe1">&nbsp;</text></h5></td>   <td><b id="dps1">&nbsp;</b></td></tr>
+                        <tr><td colspan="2" ><h5>NEW DPS<text class="text-muted" id="newAoe1">&nbsp;</text></h5></td>       <td><b id="newDps1">&nbsp;</b></td></tr>
+                        <tr><td colspan="1"><h5>DPS INCREASE PER MINERAL </h5></td><td>&nbsp;</td>                               <td><b id="dpm1">&nbsp;</b></td></tr>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-        <div class="col-md-4 col-md-offset-0">
+
+        <div class="col-md-4" id="calculator2" style="display: none">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form id="form2">
+                        <div class="form-group">
+                            <h4><a onclick="removeCalculator(2)" class="btn btn-warning pull-right" id="remove2">REMOVE</a><label class="text-center">DPS CALCULATOR</label></h4>
+                            <label for="baseDmg2">TOWER</label>
+                            <select class="form-control" id="baseDmg2" name="baseDmg2">
+                                <option>Angle</option>
+                                <option>Anti Air</option>
+                                <option>Big Multi shot</option>
+                                <option>Big splash</option>
+                                <option>Bombardment</option>
+                                <option>Bounce</option>
+                                <option>Chain reaction</option>
+                                <option>Charge</option>
+                                <option>Damage field</option>
+                                <option>Discharge</option>
+                                <option>Flame</option>
+                                <option>High damage</option>
+                                <option>Infection</option>
+                                <option>Line splash</option>
+                                <option>Long Minimum range</option>
+                                <option>Melee</option>
+                                <option>Minimum range</option>
+                                <option>Multi shot</option>
+                                <option>Rage</option>
+                                <option>Sniper</option>
+                                <option>Splash</option>
+                                <option>Torus</option>
+                                <option>Trigger</option>
+                                <option>Two sided</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="auraDmg2">AREA %DMG</label>
+                            <input type="text" class="form-control" id="auraDmg2" name="auraDmg2" autocomplete="off" maxlength="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="allDmgUpgrades2">ALL TOWERS DMG UPGRADES</label>
+                            <input type="text" class="form-control" id="allDmgUpgrades2" name="allDmgUpgrades2" autocomplete="off" maxlength="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="armor2">WAVE ARMOR</label>
+                            <input type="text" class="form-control" id="armor2" name="armor2" autocomplete="off" maxlength="5">
+                        </div>
+
+                        <div class="form-group" >
+                            <label for="minerals2">MINERALS</label>
+                            <input type="text" class="form-control" id="minerals2" name="minerals2" autocomplete="off" maxlength="5">
+                        </div>
+                        <div class="form-inline">
+                                <div class="form-group" >
+                                    <label for="asUpgrades2">SPEED</label>
+                                    <br>
+                                    <input type="text" class="form-control" id="asUpgrades2" name="asUpgrades2" autocomplete="off" maxlength="2" style="max-width: 130px">
+                                </div>
+                            &nbsp;
+                                <div class="form-group">
+
+                                    <label for="dmgUpgrades2">DAMAGE</label>
+                                    <br>
+                                    <input type="text" class="form-control" id="dmgUpgrades2" name="dmgUpgrades2" autocomplete="off" maxlength="4" style="max-width: 130px">
+                                    &nbsp;
+
+                                    <div class="form-group pull-right">
+                                        <a onclick="" class="btn btn-primary" id="set2">UP</a>
+                                    </div>
+                            </div>
+                        </div>
+
+
+                <br>
+                <div class="form-inline">
+                    <div class="form-group" style="max-width: 70px">
+                        <label for="bonusAs2">SPEED BONUS</label>
+                        <select class="form-control" id="bonusAs2" name="bonusAs2">
+                            <option>4%</option>
+                            <option>5%</option>
+                            <option>6%</option>
+                        </select>
+                    </div>
+                    &nbsp;
+                    <div class="form-group" style="max-width: 70px">
+                        <label for="asCost2">SPEED COST</label>
+                        <select class="form-control" id="asCost2" name="asCost2">
+                            <option>+1</option>
+                            <option>+2</option>
+                            <option>+3</option>
+                            <option>+4</option>
+                            <option>+5</option>
+                            <option>+6</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="max-width: 70px">
+                        <label for="dmgCost2">DMG COST</label>
+                        <select class="form-control" id="dmgCost2" name="dmgCost2">
+                            <option>+1</option>
+                            <option>+2</option>
+                            <option>+3</option>
+                            <option>+4</option>
+                            <option>+5</option>
+                            <option>+6</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="form-inline">
+                    <a onclick="calc(2)" class="btn btn-success btn-lg" id="clc2">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif2"> <label style="color: red; display: none" id="error2">ERROR</label>
+                </div>
+                </form>
+                <table class="table">
+                    <tr><td colspan="1"><h5>UP SPEED</h5></td><td>&nbsp;</td>                                               <td><b id="as2">&nbsp;</b></td></tr>
+                    <tr><td colspan="1"><h5>UP DAMAGE</h5></td><td>&nbsp;</td>                                               <td><b id="dmg2">&nbsp;</b></td></tr>
+                    <tr><td colspan="2" ><h5>CURRENT DPS<text class="text-muted" id="aoe2">&nbsp;</text></h5></td>   <td><b id="dps2">&nbsp;</b></td></tr>
+                    <tr><td colspan="2" ><h5>NEW DPS<text class="text-muted" id="newAoe2">&nbsp;</text></h5></td>       <td><b id="newDps2">&nbsp;</b></td></tr>
+                    <tr><td colspan="1"><h5>DPS INCREASE PER MINERAL </h5></td><td>&nbsp;</td>                               <td><b id="dpm2">&nbsp;</b></td></tr>
+                </table>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="col-md-4" id="calculator3" style="display: none">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <form id="form3">
+                        <div class="form-group">
+                            <h4><a onclick="removeCalculator(3)" class="btn btn-warning pull-right" id="remove3">REMOVE</a><label class="text-center">DPS CALCULATOR</label></h4>
+                            <label for="baseDmg3">TOWER</label>
+                            <select class="form-control" id="baseDmg3" name="baseDmg3">
+                                <option>Angle</option>
+                                <option>Anti Air</option>
+                                <option>Big Multi shot</option>
+                                <option>Big splash</option>
+                                <option>Bombardment</option>
+                                <option>Bounce</option>
+                                <option>Chain reaction</option>
+                                <option>Charge</option>
+                                <option>Damage field</option>
+                                <option>Discharge</option>
+                                <option>Flame</option>
+                                <option>High damage</option>
+                                <option>Infection</option>
+                                <option>Line splash</option>
+                                <option>Long Minimum range</option>
+                                <option>Melee</option>
+                                <option>Minimum range</option>
+                                <option>Multi shot</option>
+                                <option>Rage</option>
+                                <option>Sniper</option>
+                                <option>Splash</option>
+                                <option>Torus</option>
+                                <option>Trigger</option>
+                                <option>Two sided</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="auraDmg3">AREA %DMG</label>
+                            <input type="text" class="form-control" id="auraDmg3" name="auraDmg3" autocomplete="off" maxlength="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="allDmgUpgrades3">ALL TOWERS DMG UPGRADES</label>
+                            <input type="text" class="form-control" id="allDmgUpgrades3" name="allDmgUpgrades3" autocomplete="off" maxlength="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="armor3">WAVE ARMOR</label>
+                            <input type="text" class="form-control" id="armor3" name="armor3" autocomplete="off" maxlength="5">
+                        </div>
+
+                        <div class="form-group" >
+                            <label for="minerals3">MINERALS</label>
+                            <input type="text" class="form-control" id="minerals3" name="minerals3" autocomplete="off" maxlength="5">
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group" >
+                                <label for="asUpgrades3">SPEED</label>
+                                <br>
+                                <input type="text" class="form-control" id="asUpgrades3" name="asUpgrades3" autocomplete="off" maxlength="2" style="max-width: 130px">
+                            </div>
+                            &nbsp;
+                            <div class="form-group">
+
+                                <label for="dmgUpgrades3">DAMAGE</label>
+                                <br>
+                                <input type="text" class="form-control" id="dmgUpgrades3" name="dmgUpgrades3" autocomplete="off" maxlength="4" style="max-width: 130px">
+                                &nbsp;
+
+                                <div class="form-group pull-right">
+                                    <a onclick="" class="btn btn-primary" id="set3">UP</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-inline">
+                            <div class="form-group" style="max-width: 70px">
+                                <label for="bonusAs3">SPEED BONUS</label>
+                                <select class="form-control" id="bonusAs3" name="bonusAs3">
+                                    <option>4%</option>
+                                    <option>5%</option>
+                                    <option>6%</option>
+                                </select>
+                            </div>
+                            &nbsp;
+                            <div class="form-group" style="max-width: 70px">
+                                <label for="asCost3">SPEED COST</label>
+                                <select class="form-control" id="asCost3" name="asCost3">
+                                    <option>+1</option>
+                                    <option>+2</option>
+                                    <option>+3</option>
+                                    <option>+4</option>
+                                    <option>+5</option>
+                                    <option>+6</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="max-width: 70px">
+                                <label for="dmgCost3">DMG COST</label>
+                                <select class="form-control" id="dmgCost3" name="dmgCost3">
+                                    <option>+1</option>
+                                    <option>+2</option>
+                                    <option>+3</option>
+                                    <option>+4</option>
+                                    <option>+5</option>
+                                    <option>+6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-inline">
+                            <a onclick="calc(3)" class="btn btn-success btn-lg" id="clc3">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif3"> <label style="color: red; display: none" id="error3">ERROR</label>
+                        </div>
+
+
+
+                    </form>
+                    <table class="table">
+                        <tr><td colspan="1"><h5>UP SPEED</h5></td><td>&nbsp;</td>                                               <td><b id="as3">&nbsp;</b></td></tr>
+                        <tr><td colspan="1"><h5>UP DAMAGE</h5></td><td>&nbsp;</td>                                               <td><b id="dmg3">&nbsp;</b></td></tr>
+                        <tr><td colspan="2" ><h5>CURRENT DPS<text class="text-muted" id="aoe3">&nbsp;</text></h5></td>   <td><b id="dps3">&nbsp;</b></td></tr>
+                        <tr><td colspan="2" ><h5>NEW DPS<text class="text-muted" id="newAoe3">&nbsp;</text></h5></td>       <td><b id="newDps3">&nbsp;</b></td></tr>
+                        <tr><td colspan="1"><h5>DPS INCREASE PER MINERAL </h5></td><td>&nbsp;</td>                               <td><b id="dpm3">&nbsp;</b></td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-3" id="incomeCalculator" style="display:none">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <form id="form">
                         <div class="form-group">
-                            <h4><p class="text-center"><label>INCOME CALCULATOR</label></p></h4>
+                            <h4 class="text-center"><label>INCOME CALCULATOR</label></h4>
                             <label for="current">CURRENT WAVE</label>
                             <input type="text" class="form-control" id="current" name="current" autocomplete="off">
                         </div>
@@ -146,7 +416,8 @@
                 </div>
             </div>
         </div>
+
     </div>
-</div>
+    </div>
 </body>
 </html>
