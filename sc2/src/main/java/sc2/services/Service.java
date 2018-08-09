@@ -17,16 +17,16 @@ public class Service {
             Future<String> future2 = service.submit(new rek2(form, form.getMinerals(), dps(form), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), s1, 0.0, 0.0, false, false));
             Double s2 = Double.parseDouble(future2.get());
             if (form.getMultiplier().equals(1.0))
-            return "as+" + s2.intValue() / 1000 + "*dmg-" + s2.intValue() % 100 +
+            return "as+" + s2.intValue() / 100000 + "*dmg-" + s2.intValue() % 10000 +
                     "^dps@" + dps(form) +
                     "$new~" + s1 + "%";
             if (form.getMultiplier().equals(6.5))
-                return "as+" + s2.intValue() / 1000 + "*dmg-" + s2.intValue() % 100 +
+                return "as+" + s2.intValue() / 100000 + "*dmg-" + s2.intValue() % 10000 +
                         "^dps@" + dps(form) * form.getMultiplier() +
-                        "$new~" + s1 * form.getMultiplier() + "%" + "(if always hits 7 targets)";
-            return "as+" + s2.intValue() / 1000 + "*dmg-" + s2.intValue() % 100 +
+                        "$new~" + s1 * form.getMultiplier() + "%" + "\n(if on average hits 7 targets)";
+            return "as+" + s2.intValue() / 100000 + "*dmg-" + s2.intValue() % 10000 +
                     "^dps@" + dps(form) * form.getMultiplier() +
-                    "$new~" + s1 * form.getMultiplier() + "%" + "(if always hits " + Math.round(form.getMultiplier()) + " targets)";
+                    "$new~" + s1 * form.getMultiplier() + "%" + "\n(if on average hits " + Math.round(form.getMultiplier()) + " targets)";
         } catch (InterruptedException | ExecutionException e) {
             return "error";
         }
@@ -140,7 +140,7 @@ public class Service {
         private Double findMax(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, Double max, Double a, Double d, boolean b) {
             if (dps.equals(max)) {
                 found = true;
-                return a * 1000 + d;
+                return a * 100000 + d;
             }
             if (minerals <= 0.0) {
                 return 0.0;

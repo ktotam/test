@@ -4,13 +4,7 @@
     <title>EnTropy TD dps calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript" src="js/js.js"></script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-9706403203807820",
-            enable_page_level_ads: true
-        });
-    </script>
+    
 </head>
 
 <style type="text/css">
@@ -20,11 +14,32 @@
 </style>
 
 <body>
-           <br>
+          <br>
+<div class="col-md-2 pull-left" id="incomeCalculator" style="display:none">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <form id="form">
+                <div class="form-group">
+                    <h5 class="text-center"><label>INCOME CALCULATOR</label></h5>
+                    <label for="current">CURRENT WAVE</label>
+                    <input type="text" class="form-control" id="current" name="current" autocomplete="off" maxlength="4">
+                </div>
+                <div class="form-group">
+                    <label for="price">UPGRADE PRICE</label>
+                    <input type="text" class="form-control" id="price" name="price" autocomplete="off" maxlength="9">
+                </div>
+
+                <a onclick="income()" class="btn btn-success " >CALCULATE</a>
+                <hr>
+                <h4><label id="aa">&nbsp;</label></h4>
+            </form>
+        </div>
+    </div>
+</div>
 <div class="container" id="main">
     <div class="row">
 
-        <div class="col-md-4" id="calculator1">
+        <div class="col-md-4 col-sm-10 col-xs-10" id="calculator1">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <form id="form1">
@@ -73,7 +88,7 @@
 
                         <div class="form-group" >
                             <label for="minerals1">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals1" name="minerals1" autocomplete="off" maxlength="5">
+                            <input type="text" class="form-control" id="minerals1" name="minerals1" autocomplete="off" maxlength="6">
                         </div>
                         <div class="form-inline">
                             <div class="form-group" >
@@ -127,11 +142,10 @@
                                     <option>+6</option>
                                 </select>
                             </div>
-                            <a onclick="calc(1)" class="btn btn-success" id="clc1">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif1"> <label style="color: red; display: none" id="error1">ERROR</label>
+                            <a onclick="calc(1)" class="btn btn-success pull-right" id="clc1">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif1" class="pull-right">
                         </div>
-                        <br>
-                        <div class="form-inline">
-                        </div>
+                        
+                        <label style="color: red; display: none" id="error1" class="pull-right">ERROR</label>
 
 
 
@@ -196,7 +210,7 @@
 
                         <div class="form-group" >
                             <label for="minerals2">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals2" name="minerals2" autocomplete="off" maxlength="5">
+                            <input type="text" class="form-control" id="minerals2" name="minerals2" autocomplete="off" maxlength="6">
                         </div>
                         <div class="form-inline">
                                 <div class="form-group" >
@@ -229,7 +243,7 @@
                             <option>6%</option>
                         </select>
                     </div>
-                    &nbsp;
+                    
                     <div class="form-group" style="max-width: 70px">
                         <label for="asCost2">SPEED COST</label>
                         <select class="form-control" id="asCost2" name="asCost2">
@@ -253,11 +267,11 @@
                             <option>+6</option>
                         </select>
                     </div>
+                    <a onclick="calc(2)" class="btn btn-success pull-right" id="clc2">CALCULATE</a> <img src="gifs/35.gif" style="display: none;" class="pull-right" id="gif2">
+
                 </div>
-                <br>
-                <div class="form-inline">
-                    <a onclick="calc(2)" class="btn btn-success btn-lg" id="clc2">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif2"> <label style="color: red; display: none" id="error2">ERROR</label>
-                </div>
+
+                        <label style="color: red; display: none" id="error2" class="pull-right">ERROR</label>
                 </form>
                 <table class="table">
                     <tr><td colspan="1"><h5>UP SPEED</h5></td><td>&nbsp;</td>                                               <td><b id="as2">&nbsp;</b></td></tr>
@@ -320,7 +334,7 @@
 
                         <div class="form-group" >
                             <label for="minerals3">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals3" name="minerals3" autocomplete="off" maxlength="5">
+                            <input type="text" class="form-control" id="minerals3" name="minerals3" autocomplete="off" maxlength="6">
                         </div>
                         <div class="form-inline">
                             <div class="form-group" >
@@ -351,7 +365,7 @@
                                     <option>6%</option>
                                 </select>
                             </div>
-                            &nbsp;
+
                             <div class="form-group" style="max-width: 70px">
                                 <label for="asCost3">SPEED COST</label>
                                 <select class="form-control" id="asCost3" name="asCost3">
@@ -375,12 +389,12 @@
                                     <option>+6</option>
                                 </select>
                             </div>
-                        </div>
-                        <br>
-                        <div class="form-inline">
-                            <a onclick="calc(3)" class="btn btn-success btn-lg" id="clc3">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif3"> <label style="color: red; display: none" id="error3">ERROR</label>
-                        </div>
+                            <a onclick="calc(3)" class="btn btn-success pull-right" id="clc3">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif3" class=" pull-right">
 
+                        </div>
+                        
+
+                        <label style="color: red; display: none" id="error3" class="pull-right">ERROR</label>
 
 
                     </form>
@@ -395,29 +409,11 @@
             </div>
         </div>
 
-        <div class="col-md-3 col-sm-3" id="incomeCalculator" style="display:none">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <form id="form">
-                        <div class="form-group">
-                            <h4 class="text-center"><label>INCOME CALCULATOR</label></h4>
-                            <label for="current">CURRENT WAVE</label>
-                            <input type="text" class="form-control" id="current" name="current" autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                            <label for="price">UPGRADE PRICE</label>
-                            <input type="text" class="form-control" id="price" name="price" autocomplete="off">
-                        </div>
 
-                        <a onclick="income()" class="btn btn-success " >CALCULATE</a>
-                        <hr>
-                        <h4><label id="aa">&nbsp;</label></h4>
-                    </form>
-                </div>
-            </div>
-        </div>
 
     </div>
     </div>
+<h4 class="pull-right">ktotam#2538</h4>
+
 </body>
 </html>

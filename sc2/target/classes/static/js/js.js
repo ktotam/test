@@ -78,13 +78,16 @@ function income() {
     var current = document.getElementById("current");
     var price = document.getElementById("price");
     var aa = document.getElementById("aa");
-
-    req = new XMLHttpRequest();
-    req.open('POST', '/income+'+current.value+'+'+price.value, true);
-    req.onload = (res) => {
-        aa.innerText = req.response;
+    if (!isNaN(current.value) && ! isNaN(price.value)) {
+        req = new XMLHttpRequest();
+        req.open('POST', '/income+'+current.value+'+'+price.value, true);
+        req.onload = (res) => {
+            aa.innerText = req.response;
+        }
+        req.send();
     }
-    req.send();
+
+
 }
 function set(q) {
     var asUpgrades = document.getElementById("asUpgrades" + q);
