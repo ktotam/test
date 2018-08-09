@@ -41,21 +41,21 @@ public class Form {
 
     public Double getArmor() { return Double.parseDouble(armor); }
 
-    public Double getMinerals() { return Double.parseDouble(minerals); }
+    public Integer getMinerals() { return Integer.parseInt(minerals); }
 
-    public Double getAsCost() { return Double.parseDouble(asCost); }
+    public Integer getAsCost() { return Integer.parseInt(asCost); }
 
-    public Double getDmgCost() { return Double.parseDouble(dmgCost); }
+    public Integer getDmgCost() { return Integer.parseInt(dmgCost); }
 
-    public Double getAuraDmg() { return Double.parseDouble(auraDmg)/100; }
+    public Double getAuraDmg() { return Double.parseDouble(auraDmg)/100.0; }
 
-    public Double getDmgUpgrades() { return Double.parseDouble(dmgUpgrades); }
+    public Integer getDmgUpgrades() { return Integer.parseInt(dmgUpgrades); }
 
-    public Double getAsUpgrades() { return Double.parseDouble(asUpgrades); }
+    public Integer getAsUpgrades() { return Integer.parseInt(asUpgrades); }
 
-    public Double getBonusAs() { return Double.parseDouble(bonusAs)/100; }
+    public Double getBonusAs() { return Integer.parseInt(bonusAs)/100.0; }
 
-    public Double getAllDmgUpgrades() { return Double.parseDouble(allDmgUpgrades); }
+    public Integer getAllDmgUpgrades() { return Integer.parseInt(allDmgUpgrades); }
 
     public Double getBaseDmg() {
         switch(baseDmg) {

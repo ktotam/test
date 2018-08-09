@@ -11,11 +11,12 @@ import java.util.concurrent.*;
 public class Service {
 
     public String calculate(Form form) {
+        System.out.println(245.0/5.0);
         ExecutorService service = Executors.newFixedThreadPool(3);
         try {
             Future<String> future1 = service.submit(new rek(form, form.getMinerals(), dps(form), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), false));
             Double s1 = Double.parseDouble(future1.get());
-            Future<String> future2 = service.submit(new rek2(form, form.getMinerals(), dps(form), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), s1, 0.0, 0.0, false, false));
+            Future<String> future2 = service.submit(new rek2(form, form.getMinerals(), dps(form), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), s1, 0, 0, false, false));
             Double s2 = Double.parseDouble(future2.get());
             if (form.getMultiplier().equals(1.0))
             return "as+" + s2.intValue() / 100000 + "*dmg-" + s2.intValue() % 10000 +
@@ -52,25 +53,25 @@ public class Service {
 
     }
 
-    private Double asCost(Form form) {
+    private Integer asCost(Form form) {
         return form.getAsUpgrades() + form.getAsCost();
     }
 
-    private Double dmgCost(Form form) {
+    private Integer dmgCost(Form form) {
         return form.getDmgUpgrades() + form.getDmgCost();
     }
 
     private class rek implements Callable<String> {
         private Form form;
-        private Double minerals;
+        private Integer minerals;
         private Double dps;
-        private Double asCost;
-        private Double dmgCost;
-        private Double asUpgrades;
-        private Double dmgUpgrades;
+        private Integer asCost;
+        private Integer dmgCost;
+        private Integer asUpgrades;
+        private Integer dmgUpgrades;
         private boolean b;
 
-        private rek(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, boolean b) {
+        private rek(Form form, Integer minerals, Double dps, Integer asCost, Integer dmgCost, Integer asUpgrades, Integer dmgUpgrades, boolean b) {
             this.form = form;
             this.minerals = minerals;
             this.dps = dps;
@@ -85,15 +86,15 @@ public class Service {
         public String call(){
             return getMax(form, minerals, dps, asCost, dmgCost, asUpgrades, dmgUpgrades, b).toString();
         }
-        private Double getMax(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, boolean b) {
+        private Double getMax(Form form, Integer minerals, Double dps, Integer asCost, Integer dmgCost, Integer asUpgrades, Integer dmgUpgrades, boolean b) {
             if (minerals <= 0) {
                 return dps;
             }
-            if (minerals - asCost >= 0 && minerals - dmgCost >= 0 && asUpgrades < (2.4 + form.getBonusAs()) / form.getBonusAs() && !b) {
+            if (minerals - asCost >= 0 && minerals - dmgCost >= 0 && asUpgrades < (240 + form.getBonusAs() * 100) / form.getBonusAs() / 100 && !b) {
                 return Math.max(getMax(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades, false),
                         getMax(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, true));
             } else {
-                if (minerals - asCost >= 0 && asUpgrades < (2.4 + form.getBonusAs()) / form.getBonusAs() && !b) {
+                if (minerals - asCost >= 0 && asUpgrades < (240 + form.getBonusAs() * 100) / form.getBonusAs() / 100 && !b) {
                     return getMax(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades, false);
                 } else {
                     if (minerals - dmgCost >= 0) {
@@ -106,19 +107,19 @@ public class Service {
 
     private class rek2 implements Callable<String> {
         private Form form;
-        private Double minerals;
+        private Integer minerals;
         private Double dps;
-        private Double asCost;
-        private Double dmgCost;
-        private Double asUpgrades;
-        private Double dmgUpgrades;
+        private Integer asCost;
+        private Integer dmgCost;
+        private Integer asUpgrades;
+        private Integer dmgUpgrades;
         private Double max;
-        private Double a;
-        private Double d;
+        private Integer a;
+        private Integer d;
         private boolean found;
         private boolean b;
 
-        private rek2(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, Double max, Double a, Double d, boolean found, boolean b) {
+        private rek2(Form form, Integer minerals, Double dps, Integer asCost, Integer dmgCost, Integer asUpgrades, Integer dmgUpgrades, Double max, Integer a, Integer d, boolean found, boolean b) {
             this.form = form;
             this.minerals = minerals;
             this.dps = dps;
@@ -131,6 +132,7 @@ public class Service {
             this.d = d;
             this.found = found;
             this.b = b;
+
         }
 
         @Override
@@ -138,13 +140,13 @@ public class Service {
             return findMax(form, minerals, dps, asCost, dmgCost, asUpgrades, dmgUpgrades, max, a, d, false).toString();
         }
 
-        private Double findMax(Form form, Double minerals, Double dps, Double asCost, Double dmgCost, Double asUpgrades, Double dmgUpgrades, Double max, Double a, Double d, boolean b) {
+        private Integer findMax(Form form, Integer minerals, Double dps, Integer asCost, Integer dmgCost, Integer asUpgrades, Integer dmgUpgrades, Double max, Integer a, Integer d, boolean b) {
             if (dps.equals(max)) {
                 found = true;
                 return a * 100000 + d;
             }
             if (minerals <= 0.0) {
-                return 0.0;
+                return 0;
             }
 
             if (!found) {
@@ -155,7 +157,7 @@ public class Service {
                 else
                     return findMax(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, max, a, ++d, true);
             }
-            return 0.0;
+            return 0;
         }
     }
 
