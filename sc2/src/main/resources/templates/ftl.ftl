@@ -413,7 +413,7 @@
 
     </div>
     </div>
-<h4 class="pull-right">ktotam#2538</h4>
+          <h4><span class="label label-default pull-right">ktotam#2538</span></h4>
 
 </body>
 </html>

@@ -9,6 +9,7 @@ import java.util.concurrent.*;
 
 @Component
 public class Service {
+
     public String calculate(Form form) {
         ExecutorService service = Executors.newFixedThreadPool(3);
         try {
