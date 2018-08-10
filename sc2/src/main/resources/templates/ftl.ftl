@@ -4,8 +4,20 @@
     <title>EnTropy TD dps calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript" src="js/js.js"></script>
-    
+    <script>(function(name,path,ctx){var latest,prev=name!=='Keen'&&window.Keen?window.Keen:false;ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;latest=w.Keen;if(prev){w.Keen=prev}else{try{delete w.Keen}catch(e){w.Keen=void 0}}ctx[name]=latest;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}
+    })('KeenAsync','https://d26b395fwzu5fz.cloudfront.net/keen-tracking-1.4.2.min.js',this);
+
+    KeenAsync.ready(function(){
+    var client = new KeenAsync({
+    projectId: '5b6d85ebc9e77c0001ea7386',
+    writeKey: 'E6FEC13EEAAF0FCFA8CC3E5BE1D644077CE3F3AA84CB6A6C19E090D64E494115767028752FDBEDB6F474083C9E7F62D941D195AB78F29C3AA739752A59A6F8D7984256D5D8C938024F8404E3280DDE0C529A3C85781A8C7A8400A7741FD8388E'
+    });
+
+    client.initAutoTracking();
+    });
+    </script>
 </head>
+
 
 <style type="text/css">
     body {
@@ -413,7 +425,7 @@
 
     </div>
     </div>
-          <h4><span class="label label-default pull-right">ktotam#2538</span></h4>
+          <h4><span class="label label-default pull-left">ktotam#2538</span></h4>
 
 </body>
 </html>
