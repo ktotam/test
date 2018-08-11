@@ -140,6 +140,9 @@
                                     <option>+4</option>
                                     <option>+5</option>
                                     <option>+6</option>
+                                    <option>+7</option>
+                                    <option>+8</option>
+                                    <option>+9</option>
                                 </select>
                             </div>
 
@@ -152,6 +155,9 @@
                                     <option>+4</option>
                                     <option>+5</option>
                                     <option>+6</option>
+                                    <option>+7</option>
+                                    <option>+8</option>
+                                    <option>+9</option>
                                 </select>
                             </div>
                             <a onclick="calc(1)" class="btn btn-success pull-right" id="clc1">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif1" class="pull-right">

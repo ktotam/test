@@ -11,7 +11,6 @@ import java.util.concurrent.*;
 public class Service {
 
     public String calculate(Form form) {
-        System.out.println(245.0/5.0);
         ExecutorService service = Executors.newFixedThreadPool(3);
         try {
             Future<String> future1 = service.submit(new rek(form, form.getMinerals(), dps(form), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), false));
