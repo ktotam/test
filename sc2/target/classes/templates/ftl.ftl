@@ -87,33 +87,33 @@
                         </div>
                         <div class="form-group">
                             <label for="auraDmg1">AREA %DMG</label>
-                            <input type="text" class="form-control" id="auraDmg1" name="auraDmg1" autocomplete="off" maxlength="3">
+                            <input type="text" class="form-control" id="auraDmg1" name="auraDmg1" autocomplete="off" maxlength="3" placeholder="0">
                         </div>
                         <div class="form-group">
                             <label for="allDmgUpgrades1">ALL TOWERS DMG UPGRADES</label>
-                            <input type="text" class="form-control" id="allDmgUpgrades1" name="allDmgUpgrades1" autocomplete="off" maxlength="3">
+                            <input type="text" class="form-control" id="allDmgUpgrades1" name="allDmgUpgrades1" autocomplete="off" maxlength="3" placeholder="0">
                         </div>
                         <div class="form-group">
                             <label for="armor1">WAVE ARMOR</label>
-                            <input type="text" class="form-control" id="armor1" name="armor1" autocomplete="off" maxlength="5">
+                            <input type="text" class="form-control" id="armor1" name="armor1" autocomplete="off" maxlength="5" placeholder="0">
                         </div>
 
                         <div class="form-group" >
                             <label for="minerals1">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals1" name="minerals1" autocomplete="off" maxlength="6">
+                            <input type="text" class="form-control" id="minerals1" name="minerals1" autocomplete="off" maxlength="6" placeholder="0">
                         </div>
                         <div class="form-inline">
                             <div class="form-group" >
                                 <label for="asUpgrades1">SPEED</label>
                                 <br>
-                                <input type="text" class="form-control" id="asUpgrades1" name="asUpgrades1" autocomplete="off" maxlength="2" style="max-width: 130px">
+                                <input type="text" class="form-control" id="asUpgrades1" name="asUpgrades1" autocomplete="off" maxlength="2" style="max-width: 130px" placeholder="0">
                             </div>
                             &nbsp;
                             <div class="form-group">
 
                                 <label for="dmgUpgrades1">DAMAGE</label>
                                 <br>
-                                <input type="text" class="form-control" id="dmgUpgrades1" name="dmgUpgrades1" autocomplete="off" maxlength="4" style="max-width: 130px">
+                                <input type="text" class="form-control" id="dmgUpgrades1" name="dmgUpgrades1" autocomplete="off" maxlength="4" style="max-width: 130px" placeholder="0">
                                 &nbsp;
 
                                 <div class="form-group pull-right">
@@ -215,33 +215,33 @@
                         </div>
                         <div class="form-group">
                             <label for="auraDmg2">AREA %DMG</label>
-                            <input type="text" class="form-control" id="auraDmg2" name="auraDmg2" autocomplete="off" maxlength="3">
+                            <input type="text" class="form-control" id="auraDmg2" name="auraDmg2" autocomplete="off" maxlength="3" placeholder="0">
                         </div>
                         <div class="form-group">
                             <label for="allDmgUpgrades2">ALL TOWERS DMG UPGRADES</label>
-                            <input type="text" class="form-control" id="allDmgUpgrades2" name="allDmgUpgrades2" autocomplete="off" maxlength="3">
+                            <input type="text" class="form-control" id="allDmgUpgrades2" name="allDmgUpgrades2" autocomplete="off" maxlength="3" placeholder="0">
                         </div>
                         <div class="form-group">
                             <label for="armor2">WAVE ARMOR</label>
-                            <input type="text" class="form-control" id="armor2" name="armor2" autocomplete="off" maxlength="5">
+                            <input type="text" class="form-control" id="armor2" name="armor2" autocomplete="off" maxlength="5" placeholder="0">
                         </div>
 
                         <div class="form-group" >
                             <label for="minerals2">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals2" name="minerals2" autocomplete="off" maxlength="6">
+                            <input type="text" class="form-control" id="minerals2" name="minerals2" autocomplete="off" maxlength="6" placeholder="0">
                         </div>
                         <div class="form-inline">
                                 <div class="form-group" >
                                     <label for="asUpgrades2">SPEED</label>
                                     <br>
-                                    <input type="text" class="form-control" id="asUpgrades2" name="asUpgrades2" autocomplete="off" maxlength="2" style="max-width: 130px">
+                                    <input type="text" class="form-control" id="asUpgrades2" name="asUpgrades2" autocomplete="off" maxlength="2" style="max-width: 130px" placeholder="0">
                                 </div>
                             &nbsp;
                                 <div class="form-group">
 
                                     <label for="dmgUpgrades2">DAMAGE</label>
                                     <br>
-                                    <input type="text" class="form-control" id="dmgUpgrades2" name="dmgUpgrades2" autocomplete="off" maxlength="4" style="max-width: 130px">
+                                    <input type="text" class="form-control" id="dmgUpgrades2" name="dmgUpgrades2" autocomplete="off" maxlength="4" style="max-width: 130px" placeholder="0">
                                     &nbsp;
 
                                     <div class="form-group pull-right">
@@ -339,33 +339,33 @@
                         </div>
                         <div class="form-group">
                             <label for="auraDmg3">AREA %DMG</label>
-                            <input type="text" class="form-control" id="auraDmg3" name="auraDmg3" autocomplete="off" maxlength="3">
+                            <input type="text" class="form-control" id="auraDmg3" name="auraDmg3" autocomplete="off" maxlength="3" placeholder="0">
                         </div>
                         <div class="form-group">
                             <label for="allDmgUpgrades3">ALL TOWERS DMG UPGRADES</label>
-                            <input type="text" class="form-control" id="allDmgUpgrades3" name="allDmgUpgrades3" autocomplete="off" maxlength="3">
+                            <input type="text" class="form-control" id="allDmgUpgrades3" name="allDmgUpgrades3" autocomplete="off" maxlength="3" placeholder="0">
                         </div>
                         <div class="form-group">
                             <label for="armor3">WAVE ARMOR</label>
-                            <input type="text" class="form-control" id="armor3" name="armor3" autocomplete="off" maxlength="5">
+                            <input type="text" class="form-control" id="armor3" name="armor3" autocomplete="off" maxlength="5" placeholder="0">
                         </div>
 
                         <div class="form-group" >
                             <label for="minerals3">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals3" name="minerals3" autocomplete="off" maxlength="6">
+                            <input type="text" class="form-control" id="minerals3" name="minerals3" autocomplete="off" maxlength="6" placeholder="0">
                         </div>
                         <div class="form-inline">
                             <div class="form-group" >
                                 <label for="asUpgrades3">SPEED</label>
                                 <br>
-                                <input type="text" class="form-control" id="asUpgrades3" name="asUpgrades3" autocomplete="off" maxlength="2" style="max-width: 130px">
+                                <input type="text" class="form-control" id="asUpgrades3" name="asUpgrades3" autocomplete="off" maxlength="2" style="max-width: 130px" placeholder="0">
                             </div>
                             &nbsp;
                             <div class="form-group">
 
                                 <label for="dmgUpgrades3">DAMAGE</label>
                                 <br>
-                                <input type="text" class="form-control" id="dmgUpgrades3" name="dmgUpgrades3" autocomplete="off" maxlength="4" style="max-width: 130px">
+                                <input type="text" class="form-control" id="dmgUpgrades3" name="dmgUpgrades3" autocomplete="off" maxlength="4" style="max-width: 130px" placeholder="0">
                                 &nbsp;
 
                                 <div class="form-group pull-right">
