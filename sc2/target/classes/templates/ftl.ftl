@@ -271,6 +271,9 @@
                             <option>+4</option>
                             <option>+5</option>
                             <option>+6</option>
+                            <option>+7</option>
+                            <option>+8</option>
+                            <option>+9</option>
                         </select>
                     </div>
 
@@ -283,6 +286,9 @@
                             <option>+4</option>
                             <option>+5</option>
                             <option>+6</option>
+                            <option>+7</option>
+                            <option>+8</option>
+                            <option>+9</option>
                         </select>
                     </div>
                     <a onclick="calc(2)" class="btn btn-success pull-right" id="clc2">CALCULATE</a> <img src="gifs/35.gif" style="display: none;" class="pull-right" id="gif2">
@@ -393,6 +399,9 @@
                                     <option>+4</option>
                                     <option>+5</option>
                                     <option>+6</option>
+                                    <option>+7</option>
+                                    <option>+8</option>
+                                    <option>+9</option>
                                 </select>
                             </div>
 
@@ -405,6 +414,9 @@
                                     <option>+4</option>
                                     <option>+5</option>
                                     <option>+6</option>
+                                    <option>+7</option>
+                                    <option>+8</option>
+                                    <option>+9</option>
                                 </select>
                             </div>
                             <a onclick="calc(3)" class="btn btn-success pull-right" id="clc3">CALCULATE</a> <img src="gifs/35.gif" style="display: none" id="gif3" class=" pull-right">
