@@ -17,6 +17,7 @@ public class Service {
             Double s1 = Double.parseDouble(future1.get());
             Future<String> future2 = service.submit(new rek2(form, form.getMinerals(), dps(form), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), s1, 0, 0, false, false));
             Double s2 = Double.parseDouble(future2.get());
+            System.out.println(s2);
             if (form.getMultiplier().equals(1.0))
             return "as+" + s2.intValue() / 100000 + "*dmg-" + s2.intValue() % 10000 +
                     "^dps@" + dps(form) +
@@ -144,7 +145,7 @@ public class Service {
         }
 
         private Integer findMax(Form form, Integer minerals, Double dps, Integer asCost, Integer dmgCost, Integer asUpgrades, Integer dmgUpgrades, Double max, Integer a, Integer d, boolean b) {
-            if (dps.equals(max)) {
+            if (dps.equals(max) && !found) {
                 found = true;
                 return a * 100000 + d;
             }
@@ -154,11 +155,11 @@ public class Service {
 
             if (!found) {
                 if (!b) {
-                    return findMax(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades, max, ++a, d, false) +
-                            findMax(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, max, --a, ++d, true);
+                    return findMax(form, minerals - asCost, newDps(form, asUpgrades + 1, dmgUpgrades), asCost + 1, dmgCost, asUpgrades + 1, dmgUpgrades, max, a + 1, d, false) +
+                            findMax(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, max, a, d + 1, true);
                 }
                 else
-                    return findMax(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, max, a, ++d, true);
+                    return findMax(form, minerals - dmgCost, newDps(form, asUpgrades, dmgUpgrades + 1), asCost, dmgCost + 1, asUpgrades, dmgUpgrades + 1, max, a, d + 1, true);
             }
             return 0;
         }

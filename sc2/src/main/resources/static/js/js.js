@@ -90,12 +90,15 @@ function income() {
 
 }
 function set(q) {
+
+
     var asUpgrades = document.getElementById("asUpgrades" + q);
     var dmgUpgrades = document.getElementById("dmgUpgrades" + q);
     var as = document.getElementById("as" + q);
     var dmg = document.getElementById("dmg" + q);
     asUpgrades.value = parseInt(asUpgrades.value) + parseInt(as.innerText);
     dmgUpgrades.value = parseInt(dmgUpgrades.value) + parseInt(dmg.innerText);
+
 }
 
 function addCalculator() {
