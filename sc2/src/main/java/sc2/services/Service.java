@@ -34,21 +34,25 @@ public class Service {
     }
 
     private Double dps(Form form) {
-        Double damage = 1 + form.getDmgUpgrades() + form.getAllDmgUpgrades() - form.getArmor();
+        Double damage = 1 + form.getDmgUpgrades() - form.getArmor();
         if (damage < 1)
             damage = 1.0;
         if (!form.getBaseDmg().equals(1.47))
-            return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades()))));
-        return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades()))));
+            return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades())))) +
+                    form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades()))));
+        return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades())))) +
+                form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades()))));
     }
 
     private Double newDps(Form form, double as, double dmg) {
-        Double damage = dmg + 1 + form.getAllDmgUpgrades() - form.getArmor();
+        Double damage = dmg + 1 - form.getArmor();
         if (damage < 1)
             damage = 1.0;
         if (!form.getBaseDmg().equals(1.47))
-            return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, as))));
-        return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, as))));
+            return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, as)))) +
+                    form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, as))));
+        return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, as)))) +
+                form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, as))));
 
     }
 

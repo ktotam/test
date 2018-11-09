@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 
 @SpringBootApplication
 @ComponentScan("sc2")
-@EntityScan(basePackages = "sc2.models")
 @Controller("sc2.controllers")
 
 public class App {
