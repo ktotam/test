@@ -1,5 +1,6 @@
 function calc(q) {
     document.getElementById("error" + q).style.display = 'none';
+    document.getElementById("clcIncome").setAttribute("onclick", "");
     document.getElementById("clc1").setAttribute("onclick", "");
     document.getElementById("clc2").setAttribute("onclick", "");
     document.getElementById("clc3").setAttribute("onclick", "");
@@ -64,6 +65,7 @@ function calc(q) {
             document.getElementById("dpm" + q).innerText = "0";
         }
         else document.getElementById("dpm" + q).innerText = s;
+        document.getElementById("clcIncome").setAttribute("onclick", "income()");
         document.getElementById("clc1").setAttribute("onclick", "calc(1)");
         document.getElementById("clc2").setAttribute("onclick", "calc(2)");
         document.getElementById("clc3").setAttribute("onclick", "calc(3)");
@@ -75,14 +77,28 @@ function calc(q) {
 
 }
 function income() {
+    document.getElementById("clcIncome").setAttribute("onclick", "");
+    document.getElementById("clc1").setAttribute("onclick", "");
+    document.getElementById("clc2").setAttribute("onclick", "");
+    document.getElementById("clc3").setAttribute("onclick", "");
     var current = document.getElementById("current");
+    if (isNaN(parseInt(current.value))) {
+        current.value = 0;
+    }
     var price = document.getElementById("price");
+    if (isNaN(parseInt(price.value))) {
+        price.value = 0;
+    }
     var aa = document.getElementById("aa");
     if (!isNaN(current.value) && ! isNaN(price.value) && current.value !== "" && price.value !== "") {
         req = new XMLHttpRequest();
         req.open('POST', '/income+'+current.value+'+'+price.value, true);
         req.onload = (res) => {
             aa.innerText = req.response;
+            document.getElementById("clcIncome").setAttribute("onclick", "income()");
+            document.getElementById("clc1").setAttribute("onclick", "calc(1)");
+            document.getElementById("clc2").setAttribute("onclick", "calc(2)");
+            document.getElementById("clc3").setAttribute("onclick", "calc(3)");
         }
         req.send();
     }

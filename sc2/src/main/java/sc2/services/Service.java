@@ -17,7 +17,6 @@ public class Service {
             Double s1 = Double.parseDouble(future1.get());
             Future<String> future2 = service.submit(new rek2(form, form.getMinerals(), dps(form), asCost(form), dmgCost(form), form.getAsUpgrades(), form.getDmgUpgrades(), s1, 0, 0, false, false));
             Double s2 = Double.parseDouble(future2.get());
-            System.out.println(s2);
             if (form.getMultiplier().equals(1.0))
             return "as+" + s2.intValue() / 100000 + "*dmg-" + s2.intValue() % 10000 +
                     "^dps@" + dps(form) +
@@ -35,25 +34,39 @@ public class Service {
     }
 
     private Double dps(Form form) {
-        Double damage = 1 + form.getDmgUpgrades() - form.getArmor();
+        Double damage = 1.0 + form.getDmgUpgrades();
         if (damage < 1)
             damage = 1.0;
-        if (!form.getBaseDmg().equals(1.47))
-            return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades())))) +
+        if (!form.getBaseDmg().equals(1.47)) {
+            Double temp = (form.getBaseDmg() * damage * (1 + form.getAuraDmg()) - form.getArmor()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades())))) +
                     form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades()))));
-        return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades())))) +
+            if (temp < 0)
+                return 1.0;
+            return temp;
+        }
+        Double temp = (form.getBaseDmg() * damage * (1 + form.getAuraDmg()) - form.getArmor()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades())))) +
                 form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, form.getAsUpgrades()))));
+        if (temp < 0)
+            return 1.0;
+        return temp;
     }
 
     private Double newDps(Form form, double as, double dmg) {
-        Double damage = dmg + 1 - form.getArmor();
+        Double damage = dmg + 1.0;
         if (damage < 1)
             damage = 1.0;
-        if (!form.getBaseDmg().equals(1.47))
-            return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, as)))) +
+        if (!form.getBaseDmg().equals(1.47)) {
+            Double temp = (form.getBaseDmg() * damage * (1 + form.getAuraDmg()) - form.getArmor()) / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, as)))) +
                     form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.5 * (Math.pow(form.getBonusAs() + 1, as))));
-        return form.getBaseDmg() * damage * (1 + form.getAuraDmg()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, as)))) +
+            if (temp < 0)
+                return 1.0;
+            return temp;
+        }
+        Double temp = (form.getBaseDmg() * damage * (1 + form.getAuraDmg()) - form.getArmor()) / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, as)))) +
                 form.getBaseDmg() * form.getAllDmgUpgrades() / (1 / (0.25 * (Math.pow(form.getBonusAs() + 1, as))));
+        if (temp < 0)
+            return 1.0;
+        return temp;
 
     }
 

@@ -41,7 +41,7 @@
                     <input type="text" class="form-control" id="price" name="price" autocomplete="off" maxlength="9">
                 </div>
 
-                <a onclick="income()" class="btn btn-success " >CALCULATE</a>
+                <a onclick="income()" class="btn btn-success " id="clcIncome">CALCULATE</a>
                 <hr>
                 <h4><label id="aa">&nbsp;</label></h4>
             </form>
@@ -56,7 +56,9 @@
                 <div class="panel-heading">
                     <form id="form1">
                         <div class="form-group">
-                            <h4><a onclick="addCalculator()" class="btn btn-small btn-info pull-right" id="add">ADD</a><a onclick="incomeCalculator()" class="btn btn-info pull-left">INCOME</a><label class="text-center">&nbsp;DPS CALCULATOR</label></h4>
+                            <h4><a onclick="addCalculator()" class="btn btn-small btn-info pull-right" id="add">ADD</a>
+                                <a onclick="incomeCalculator()" class="btn btn-info pull-left">INCOME</a>
+                                <label class="text-center">&nbsp;DPS CALCULATOR</label></h4>
                             <label for="baseDmg1">TOWER</label>
                             <select class="form-control" id="baseDmg1" name="baseDmg1">
                                 <option>Angle</option>
@@ -100,7 +102,7 @@
 
                         <div class="form-group" >
                             <label for="minerals1">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals1" name="minerals1" autocomplete="off" maxlength="6" placeholder="0">
+                            <input type="text" class="form-control" id="minerals1" name="minerals1" autocomplete="off" maxlength="5" placeholder="0">
                         </div>
                         <div class="form-inline">
                             <div class="form-group" >
@@ -228,7 +230,7 @@
 
                         <div class="form-group" >
                             <label for="minerals2">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals2" name="minerals2" autocomplete="off" maxlength="6" placeholder="0">
+                            <input type="text" class="form-control" id="minerals2" name="minerals2" autocomplete="off" maxlength="5" placeholder="0">
                         </div>
                         <div class="form-inline">
                             <div class="form-group" >
@@ -358,7 +360,7 @@
 
                         <div class="form-group" >
                             <label for="minerals3">MINERALS</label>
-                            <input type="text" class="form-control" id="minerals3" name="minerals3" autocomplete="off" maxlength="6" placeholder="0">
+                            <input type="text" class="form-control" id="minerals3" name="minerals3" autocomplete="off" maxlength="5" placeholder="0">
                         </div>
                         <div class="form-inline">
                             <div class="form-group" >
